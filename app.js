@@ -73,7 +73,8 @@ app.use(function(req,res,next){
 
 //------------------connecting to mongo server--------------------
 // mongoose.connect("mongodb://localhost/onside",{useNewUrlParser: true});
-mongodb://<dbuser>:<dbpassword>@ds147566.mlab.com:47566/onside
+ mongoose.connect("mongodb://kaustuva:T4X1DR1V3R@ds147566.mlab.com:47566/onside",{useNewUrlParser: true});
+
 io.on('connection', function(socket){
   
 });
