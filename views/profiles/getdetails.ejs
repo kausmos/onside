@@ -1,0 +1,78 @@
+<% include ../partials/header.ejs %>
+
+<h1 class="display-4 text-center">Please taka a moment to enter some additional details, <%= currentUser.firstname %></h1>
+
+
+<div class=" container d-flex flex-column">
+    
+<a href="/slots">Skip and proceed to bookings >></a>
+
+<form method="POST" action="/profiles/self/getdetails">
+    <div>
+    <p>Positions:</p>
+        <select name = "positiona">
+            <option value="gk">GK</option>
+            <option value="cb">CB</option>
+            <option value="cm">CM</option>
+            <option value="cdm">CDM</option>
+            <option value="cam">CAM</option>
+            <option value="wb">WB</option>
+            <option value="wr">WR</option>
+            <option value="fw">FW</option>
+            <option value="st">ST</option>
+        </select>
+        <select name = "positionb">
+            <option value="gk">GK</option>
+            <option value="cb">CB</option>
+            <option value="cm">CM</option>
+            <option value="cdm">CDM</option>
+            <option value="cam">CAM</option>
+            <option value="wb">WB</option>
+            <option value="wr">WR</option>
+            <option value="fw">FW</option>
+            <option value="st">ST</option>
+        </select>
+        <select name = "positionc">
+            <option value="gk">GK</option>
+            <option value="cb">CB</option>
+            <option value="cm">CM</option>
+            <option value="cdm">CDM</option>
+            <option value="cam">CAM</option>
+            <option value="wb">WB</option>
+            <option value="wr">WR</option>
+            <option value="fw">FW</option>
+            <option value="st">ST</option>
+        </select>
+    </div>
+    
+    <div>
+        <p>Associations(Teams you are or have been part of):</p>
+        <input type="text" name="associations" placeholder="<TEAM1>,<TEAM2>,...">
+    </div>
+    
+    <div>
+        <p>Teams you support </p>
+        <input type="text" name="favteams" placeholder="<TEAM1>,<TEAM2>,...">
+    </div>
+    <div>
+        <p>Stronger Foot</p>
+        <select name = "strongfoot">
+            <option value="r">Right</option>
+            <option value="l">Left</option>
+            <option value="b">Both</option>
+        </select>
+    </div>
+    <div>
+        <p>Hometown</p>
+        <input type="text" name="hometown">
+    </div>
+    <div>
+        <input type="submit"></input>
+    </div>
+    
+</form>
+    
+    
+</div>
+
+<% include ../partials/footer.ejs %>

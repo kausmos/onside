@@ -1,0 +1,14 @@
+<% include ../partials/header.ejs %>
+
+<h1 class="display-4 text-center">My Profile</h1>
+
+<div class=" container">
+    
+        
+        <p>All the data such as playing position etc. come here</p>
+        <p>for user <%= user.firstname %></p>
+        <a class="btn" href="/messages/new/<%= user._id %>">Message</a>
+        
+</div>
+
+<% include ../partials/footer.ejs %>

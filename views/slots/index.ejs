@@ -1,0 +1,257 @@
+
+<% include ../partials/header.ejs %>
+
+<!--<h1 class="display-4 text-center">SLOTS</h1>-->
+<% 
+    var today= new Date();
+    var dayaftertomorrow = daysOfTheWeek[today.getDay()+2];
+    
+%>
+<div class="daynav"><a href="#" class="dayselect">Today</a><a href="#">Tomorrow</a><a href="#"><%= dayaftertomorrow%></a><a href="#">All Slots</a></div>
+<div class="slotwindow">
+<!-----------slots today -->
+<div class="d-flex slotsection" id="slotstoday">
+    
+    <div class="card newslotcard">
+        <a href="/slots/new?day=today" class="h-100 p-3">
+           <div class="plus-icon">
+                <h1>+</h1>   
+           </div>
+        </a>
+    </div>
+        <% if(slotstoday.length>0){
+        slotstoday.forEach(function(slot){
+            var slotbg="";
+            if(slot.vacancies && slot.vacancies>=6){
+                slotbg="slotgreen";
+            }
+            else if (slot.vacancies!=undefined && slot.vacancies>=3){
+                slotbg="slotyellow";
+            }
+            else if (slot.vacancies){
+                slotbg="slotred";
+            }
+            console.log("slotstoday ejs:"+slot);
+            %>
+            
+                <div class="card p-0 mx-2 my-1">
+                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                        <div class="card-header"  >
+                            <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
+                            <h6><%= slot.start.toDateString() %></h6>    
+                        </div>
+                        <% if(slot.start>new Date()){%>
+                        <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
+                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <p class="slotalert">ONGOING!!</p>
+                        <% } %>
+                        <ul class="list-group list-group-flush playerlist">
+                            <%slot.bookings.forEach(function(booking){
+                                if(booking.companions==0){
+                                %>
+                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                <%
+                                }
+                                
+                                else{
+                                %>
+                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                <%
+                                }
+                            });%>
+                        </ul>
+                        
+                    </a>
+                </div>
+            </a>
+        <% }) }
+        
+        else{ %>
+        <div class="noslotmessage"><p id=>No bookings so far!!</p></div>
+        
+        <% } %>
+</div>
+
+<!-----------slots tomorrow -->
+
+<div class="d-none slotsection" id="slotstomorrow">
+    
+    <div class="card newslotcard">
+        <a href="/slots/new?day=tomorrow" class="h-100 p-3">
+            <div class="plus-icon">
+                <h1>+</h1>   
+           </div>
+        </a>
+    </div>
+    <%if(slotstomorrow.length>0){
+        slotstomorrow.forEach(function(slot){
+            var slotbg="";
+            if(slot && slot.vacancies>=6){
+                slotbg="slotgreen";
+            }
+            else if (slot && slot.vacancies>=3){
+                slotbg="slotyellow";
+            }
+            else if (slot){
+                slotbg="slotred";
+            }
+            %>
+            
+                <div class="card p-0 mx-2 my-1">
+                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                        <div class="card-header"  >
+                            <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
+                            <h6><%= slot.start.toDateString() %></h6>    
+                        </div>
+                        <% if(slot.start>new Date()){%>
+                        <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
+                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <p class="slotalert">ONGOING!!</p>
+                        <% } %>
+                        <ul class="list-group list-group-flush playerlist">
+                            <%slot.bookings.forEach(function(booking){
+                                if(booking.companions==0){
+                                %>
+                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                <%
+                                }
+                                
+                                else{
+                                %>
+                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                <%
+                                }
+                            });%>
+                        </ul>
+                        
+                    </a>
+                </div>
+            </a>
+        <% }) }
+        else{ %>
+        <div class="noslotmessage"><p>No bookings so far!!</p></div>
+        <% } %>
+</div>
+
+<!----slots day after -->
+
+<div class="d-none slotsection" id="slotsdayafter">
+    
+    <div class="card newslotcard">
+        <a href="/slots/new?day=dayafter" class="h-100 p-3">
+            <div class="plus-icon">
+                <h1>+</h1>   
+           </div>
+        </a>
+    </div>
+    <% if (slotsdayafter.length>0){
+        slotsdayafter.forEach(function(slot){
+            var slotbg="";
+            if(slot.vacancies && slot.vacancies>=6){
+                slotbg="slotgreen";
+            }
+            else if (slot.vacancies && slot.vacancies>=3){
+                slotbg="slotyellow";
+            }
+            else if(slot.vacancies){
+                slotbg="slotred";
+            }
+            %>
+            
+                <div class="card p-0 mx-2 my-1">
+                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                        <div class="card-header"  >
+                            <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
+                            <h6><%= slot.start.toDateString() %></h6>    
+                        </div>
+                        <% if(slot.start>new Date()){%>
+                        <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
+                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <p class="slotalert">ONGOING!!</p>
+                        <% } %>
+                        <ul class="list-group list-group-flush playerlist">
+                            <%slot.bookings.forEach(function(booking){
+                                if(booking.companions==0){
+                                %>
+                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                <%
+                                }
+                                
+                                else{
+                                %>
+                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                <%
+                                }
+                            });%>
+                        </ul>
+                        
+                    </a>
+                </div>
+            </a>
+        <% }) 
+        
+    } 
+        
+        else{ %>
+        <div class="noslotmessage"><p>No bookings so far!!</p></div>
+        <% } %>
+</div>
+
+<!--- All slots this year -->
+
+<div class="d-none slotsection" id="slotscurrentyear">
+    
+    
+    <% if(slotscurrentyear.length>0){
+        slotscurrentyear.forEach(function(slot){
+            var slotbg="";
+            if(slot.vacancies && slot.vacancies>=6){
+                slotbg="slotgreen";
+            }
+            else if (slot.vacancies && slot.vacancies>=3){
+                slotbg="slotyellow";
+            }
+            else if(slot.vacancies){
+                slotbg="slotred";
+            }
+            %>
+            
+                <div class="card p-0 mx-2 my-1">
+                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                        <div class="card-header"  >
+                            <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
+                            <h6><%= slot.start.toDateString() %></h6>    
+                        </div>
+                        <% if(slot.start>new Date()){%>
+                        <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
+                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <p class="slotalert">ONGOING!!</p>
+                        <% } %>
+                        <ul class="list-group list-group-flush playerlist">
+                            <%slot.bookings.forEach(function(booking){
+                                if(booking.companions==0){
+                                %>
+                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                <%
+                                }
+                                
+                                else{
+                                %>
+                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                <%
+                                }
+                            });%>
+                        </ul>
+                        
+                    </a>
+                </div>
+            </a>
+        <% })} 
+        
+        else{ %>
+        <div class="noslotmessage"><p>No bookings so far!!</p></div>
+        <% } %>
+        
+</div>
+</div>
+<% include .././partials/footer.ejs %>

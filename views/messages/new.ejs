@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs %>
+
+<h1 class="display-4 text-center">New message</h1>
+<form action="/messages/<%= user._id + suffix %>" method="POST">
+    <input type ="text" placeholder="write a message for <%=user.firstname%>" name="content">
+    <input type="submit"></input>
+</form>
+
+
+
+
+<% include ../partials/footer.ejs %>

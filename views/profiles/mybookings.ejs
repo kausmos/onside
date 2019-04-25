@@ -1,0 +1,146 @@
+<% include ../partials/header.ejs %>
+
+<div class="daynav"><a href="#" class="dayselect">Ongoing</a><a href="#">Upcoming</a><a href="#">Past</a></div>
+
+
+<!-----------ongoing games ------------>
+
+<div id="slotsongoing" class="d-flex justify-content-center flex-wrap slotsection">
+<% if (ongoingslots.length==1){ %>
+
+<div class="card p-0 mx-2 my-1">
+                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                        <div class="card-header"  >
+                            <h6><%= ongoingslots[0].start.getHours()%>:<%=ongoingslots[0].start.getMinutes()<10?'0':''%><%= ongoingslots[0].start.getMinutes()%>-<%= ongoingslots[0].end.getHours()%>:<%=ongoingslots[0].end.getMinutes()<10?'0':''%><%= ongoingslots[0].end.getMinutes()%></h6>
+                            <h6><%= ongoingslots[0].start.toDateString() %></h6>
+                        </div>
+                        
+                        <% if(ongoingslots[0].start>new Date()){%>
+                        <p class="<%=slotbg%>">VACANCIES: <%=ongoingslots[0].vacancies%></p>
+                        <% } else if(ongoingslots[0].start < new Date() && ongoingslots[0].end> new Date()){ %>
+                        <p class="slotalert">ONGOING!!</p>
+                        <% } %>
+                        
+                        <ul class="list-group list-group-flush">
+                            <%slot.bookings.forEach(function(booking){
+                                if(booking.companions==0){
+                                %>
+                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                <%
+                                }
+                                
+                                else{
+                                %>
+                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                <%
+                                }
+                            });%>
+                        </ul>
+                        
+                    </a>
+</div>
+<% } else{ %>
+    <div class="noslotmessage"><p id=>No Ongoing Games</p></div>
+<% }%>
+</div>
+<!-----------slots upcoming ------------>
+<div id="slotsupcoming" class="d-none justify-content-center flex-wrap slotsection">
+    
+    <% if(upcomingslots.length>0){
+        upcomingslots.forEach(function(slot){
+            var slotbg="";
+            if(slot.vacancies && slot.vacancies>=6){
+                slotbg="slotgreen";
+            }
+            else if (slot.vacancies!=undefined && slot.vacancies>=3){
+                slotbg="slotyellow";
+            }
+            else if (slot.vacancies){
+                slotbg="slotred";
+            }
+            console.log("slotstoday ejs:"+slot);
+            %>
+            
+                <div class="card p-0 mx-2 my-1  <%=slotbg%>">
+                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                        <div class="card-header"  >
+                            <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
+                            <h6><%= slot.start.toDateString() %></h6>
+                        </div>
+                        
+                        <% if(slot.start>new Date()){%>
+                        <p class="<%=slotbg%>">VACANCIES: <%=slot.vacancies%></p>
+                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <p class="slotalert">ONGOING!!</p>
+                        <% } %>
+                        
+                        <ul class="list-group list-group-flush">
+                            <% slot.bookings.forEach(function(booking){
+                                if(booking.companions==0){
+                                %>
+                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                <%
+                                }
+                                
+                                else{
+                                %>
+                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                <%
+                                }
+                            });%>
+                        </ul>
+                        
+                    </a>
+                </div>
+            
+    <% }) }
+        else{ %>
+        <div class="noslotmessage"><p id=>No upcoming games!!</p></div>    
+        <% } %>
+</div>
+
+<!-----------slots past ------------>
+
+<div id="slotspast" class="d-none justify-content-center flex-wrap slotsection">
+    
+    <% if(pastslots.length>0){
+        pastslots.forEach(function(slot){
+            var slotbg="slotdead";
+            
+            %>
+            
+                <div class="card p-0 mx-2 my-1  <%=slotbg%>">
+                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                        <div class="card-header"  >
+                            <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
+                            <h6><%= slot.start.toDateString() %></h6>
+                        </div>
+                        
+                        <ul class="list-group list-group-flush">
+                            <%slot.bookings.forEach(function(booking){
+                                if(booking.companions==0){
+                                %>
+                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                <%
+                                }
+                                
+                                else{
+                                %>
+                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                <%
+                                }
+                            });%>
+                        </ul>
+                        
+                    </a>
+                </div>
+            
+        <% }) 
+        
+        
+        } else{ %>
+        <div class="noslotmessage"><p id=>No Past Bookings!!</p></div>    
+        <% } %>
+</div>
+
+<% include .././partials/footer.ejs %>

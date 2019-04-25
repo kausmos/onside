@@ -1,0 +1,26 @@
+<% include ../partials/header.ejs %>
+<p class="actionmessage">Please enter timitngs for the new slot for <span><%= day %></span></p>
+<div class="card mx-auto w-25">
+    <form method="POST" action="/slots?day=<%= day %>" class="newslotform">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <h6> <%= dateObj.toDateString()%> </h6>
+        </li>
+        
+        <li class="list-group-item">
+            <h5 class="card-title">Start Time</h5>
+            <input type="time" id="starttime" name="starttime" min="7:00" max="21:00" value="18:30" required onchange=checkTime()>
+        </li>
+        <li class="list-group-item">
+            <h5 class="card-title">End Time</h5>
+            <input type="time" id="endtime" name="endtime" min="8:30" max="23:00" value="20:00" required onchange=checkTime()>
+        </li>
+  </ul>
+    <div class="actionbutton">
+        <button type="submit">Create</button>
+    </div>
+    </form>
+    
+</div> 
+
+<% include .././partials/footer.ejs %>

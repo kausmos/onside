@@ -1,0 +1,17 @@
+<% include ../partials/header.ejs %>
+
+<h1 class="display-4 text-center">My Profile</h1>
+
+<div class=" container">
+    
+        
+        <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
+        <p>Position: <%= currentUser.positions.map(x=>x.toUpperCase()) %> </p>
+        <p>Associations(Teams Played for): <%= currentUser.associations %> </p>
+        <p>Favourite Teams: <%= currentUser.favteams %> </p>
+        <p>Stronger Foot: <%= currentUser.strongfoot=="r" ? "Right" : "Left" %> </p>
+        <p>Hometown: <%= currentUser.hometown %> </p>
+        <a href="/profile/self/getdetails">Edit</a>
+</div>
+
+<% include ../partials/footer.ejs %>

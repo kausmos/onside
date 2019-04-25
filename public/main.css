@@ -1,0 +1,648 @@
+ 
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+a:hover {
+    text-decoration: none;
+}
+
+html,body{
+    overflow-x: hidden;
+}
+
+html{
+    height:100%;
+}
+body{
+    
+    background: #392338;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    font-family: 'Varela Round', sans-serif;
+    height:100vh;
+    width:100vw;
+    padding: 0px;
+    margin:0px;
+    color:#D0B6D8;
+    text-transform: uppercase;
+    min-height:100%;
+    
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.navbar-container, .main-container, .footer-container{
+    width:1200px;
+}
+
+.main-container{
+    margin-top: 70px;
+}
+
+.navbar{
+    background:#523957;
+    display: inline-block;
+    position:fixed;
+    width: 100%;
+    top:0;
+}
+
+.navbar-collapse{
+    right: 0px;
+}
+
+.navbar-nav .nav-link {
+    color: #FF947F;
+    font-size: 15px;
+}
+
+
+
+.navbar-nav .navactive {
+    color: #FFC494;
+    font-size: 16px;
+}
+
+
+
+.nav-link:hover {
+    color: #FFC494;
+}
+
+li{
+    list-style:none;
+}
+
+ul{
+    padding-left: 10px;
+}
+
+
+.card{
+    background: none;
+    border: 3px solid #C1A1C9;
+    border-radius:20px;
+    color: #C1A1C9;
+    min-height: 324px;
+    min-width:275px;
+}
+
+.card:hover{
+    border: 3px solid #FFC494;;
+    color: #FFC494;
+}
+
+.card-header{
+    color: #C1A1C9;
+    border-bottom: 2px solid #C1A1C9;
+    padding-left: 0px;
+}
+.card:hover .card-header{
+    color: #FFC494;
+    border-bottom: 2px solid #FFC494;
+}
+.card a {
+    color: #C1A1C9;
+    font-size: 13px;
+    padding: 10px;
+    
+}
+.card:hover a {
+    color: #FFC494;
+}
+
+#companionfield{
+    width:10px;
+}
+
+.maincap{
+    background-color:grey;
+}
+
+
+.slotgreen{
+    width:25px;
+    height:18px;
+    border-radius:2px;
+    font-size:16px;
+    color:#000;
+    line-height:18px;
+    text-align:center;
+    display: inline-block;
+    background:#8AB362;
+    margin-top:2px;
+    
+}
+
+.slotyellow{
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    font-size:16px;
+    color:#000;
+    line-height:20px;
+    text-align:center;
+    display: inline-block;
+    background:#FFC494
+}
+
+.slotred{
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    font-size:16px;
+    color:#000;
+    line-height:20px;
+    text-align:center;
+    display: inline-block;
+    background:#D33361
+}
+
+
+.usericon{
+    width: 15%;
+}
+
+.fa-trash-alt{
+    padding: 0px;
+}
+
+.fa-user, .fa-users {
+    margin-right:10px;
+    margin-left:12px;
+}
+
+.trashbooking{
+    display:inline-block;
+    background: none;
+    border: none;
+    color: #C1A1C9;
+}
+
+.trashbooking:hover{
+    
+    color: #D33361;
+}
+.trashbooknig:active{
+    color:#C1A1C9;
+    border:none;
+}
+
+.playername{
+    display:inline-block;
+}
+
+.playerrow{
+    text-align: left;
+}
+
+.daynav a{
+    margin: 5px;
+    color: #FF947F;
+    font-size: 15px;
+}
+
+.daynav a:hover{
+    color: #FFC494;;
+    margin-top:5px;
+}
+
+.daynav{
+    text-align: left;
+    margin: 60px 0px 120px 0px;
+    top:60px;
+    left:0;
+    
+    background: #392338;
+}
+
+.dropdown-menu{
+    background: #523957;
+}
+
+.dropdown-item:hover{
+    background: #392338;
+}
+.dropdown-divider {
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #392338;
+}
+.daynav .dayselect{
+    color: #FFC494;
+    font-size:1.3rem;
+    transition: color 1s;
+}
+
+.actionmessage{
+    border-top: 2px solid #C1A1C9;
+    border-bottom: 2px solid #C1A1C9;
+    margin: 50px auto 120px auto;
+    width: 45%;
+    text-align:center;
+}
+
+.list-group-item{
+    background: none;
+    margin: 4px 12px;
+}
+
+.list-group-item h1,h2,h3,h4,h5,h6,p{
+    margin:0px 12px;
+}
+
+.newslotform{
+    text-align:center;
+}
+
+.actionbutton button:hover{
+    border:2px solid transparent;
+    background:#C1A1C9;
+    color:#392338;
+    text-transform: uppercase;
+    
+}
+
+.actionbutton button{
+    border: 2px solid #C1A1C9;
+    background:none;
+    color:#C1A1C9;
+    text-transform: uppercase;
+}
+
+.actionbutton{
+    margin-top: 10px;
+}
+
+.delbutton button:hover{
+    border:2px solid transparent;
+    background:#C1A1C9;
+    color:#392338;
+    text-transform: uppercase;
+    
+}
+
+.delbutton button{
+    border: 2px solid #D33361;
+    background:none;
+    color:#D33361;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.delbutton{
+    margin-top: 20px;
+    padding-left: 3px;
+    padding-right:3px;
+}
+
+.companion{
+    max-width:45px;
+}
+
+.playerlist{
+    margin-top: 10px;
+}
+
+.plus-icon h1 {
+    font-size: 170px;
+}
+
+.plus-icon {
+    line-height: 170px;
+    margin-top:20%;
+    
+}
+
+.noslotmessage{
+    margin: auto 50px;
+    color: #9B619B;
+}
+    
+.newslotcard{
+    text-align: center;
+    width: 253px;
+    height: 302px;
+}
+.showslotcard{
+    margin-top: 60px;
+}
+
+
+input{
+    background: none;
+    border: 2px solid #D0B6D8;
+    color:#D0B6D8;
+}
+input:focus{
+    border: 2px solid #FFC494;
+    color:#FFC494;
+}
+
+.success-message{
+    color: #6DF7D6;
+    border-top: 1px solid #6DF7D6;
+    border-bottom: 1px solid #6DF7D6;
+    text-align: center;
+}
+.error-message{
+    
+    color:#AA1F47;
+    border-top: 1px solid #AA1F47;
+    border-bottom: 1px solid #AA1F47;
+    text-align: center;
+}
+
+.chatstreambox{
+    border: 2px solid #D0B6D8;
+    border-radius: 10px;
+    padding: 15px;
+    height: 80%;
+}
+.msgstreamcontainer{
+    overflow-y:scroll;
+    padding-left: 5px;
+    padding-right:5px;
+    margin-bottom: 2px;
+}
+
+.newmessageform{
+    width: 100%;
+    margin-top: auto;
+    border: 2px solid #D0B6D8;
+    padding: 5px 0px;
+    text-align: right;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    position:sticky;
+    bottom:0;
+    
+}
+
+.newmessageform input[type='text']{
+    width:90%;
+    border:none;
+    border-bottom: 2px solid transparent;
+    margin-right: auto;
+}
+
+.newmessageform input[type='text']:focus{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+.newmessageform input[type='text']:hover{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+
+.sendmessagebtn{
+    background: none;
+    border:none;
+    border-left: 2px solid #D0B6D8;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing:border-box;
+    text-align: right;
+    right: 0;
+}
+
+.sendmessagebtn:focus{
+    outline:none;
+}
+
+.sendmessagebtn i{
+    color:#D0B6D8;
+}
+.sendmessagebtn:hover i{
+    color:#FFC494;
+    transition: color 1s;
+}
+
+.footer{
+    margin-top: auto;
+    width:100vw;
+    position: relative;
+    display:block;
+}
+
+.footer-container {
+    position:relative;
+}
+
+.chatuser{
+    color: #FF947F;
+    background: #523957;
+    border-radius: 5px;
+    margin: 5px 0px;
+    padding: 15px 30px;
+}
+
+.speechbubble{
+    border: 2px solid #D0B6D8;
+    padding: 10px;
+    
+    margin: 2px 10px;
+    border-radius:5px;
+    position: relative;
+    display:inline-block;
+    font-size:13px;
+    text-transform: none;
+}
+
+.slotwindow{
+    overflow-x:auto;
+    border-top: 2px solid #523957;
+    border-bottom: 2px solid #523957;
+    padding: 20px 0px;
+    text-align: left;
+}
+
+.card{
+    display:inline-block;
+}
+
+.indextab{
+    border: 2px solid #D0B6D8;
+    padding: 10px;
+    
+    margin: 10px 0px;
+    border-radius:5px;
+    position: relative;
+    display:block;
+    font-size:16px;
+    color: #D0B6D8;
+}
+
+.sender-index, .lastmessage-index {
+    padding:5px;
+}
+.indextab p{
+    font-size:12px;
+    text-transform: none;
+}
+
+.indextab:hover{
+    border: 2px solid #FF947F;
+    color: #FF947F;
+    transform: border 1s;
+    transform: color 1s;
+}
+
+.lastmessage-index{
+    padding:10px;
+    background: #523957;
+    
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.message-left{
+    text-align: left;
+    position:relative;
+}
+
+.message-right{
+    text-align: right;
+    position:relative;
+}
+
+
+.message-left .speechbubble::before{
+    content: "";
+    display:block;
+    position:absolute;
+    
+    width:0px;
+    height: 0px;
+    
+    border-top: 8px solid transparent;
+    border-right: 15px solid #D0B6D8;
+    border-bottom: 8px solid transparent;
+    left: -15px;
+    top: 10px;
+}
+
+.message-left .speechbubble::after{
+    content: "";
+    display:block;
+    position:absolute;
+    
+    width:0px;
+    height: 0px;
+    
+    border-top: 8px solid transparent;
+    border-right: 15px solid #392338;
+    border-bottom: 8px solid transparent;
+    left: -10px;
+    top: 10px;
+}
+
+.message-right .speechbubble::before{
+    content: "";
+    display:block;
+    position:absolute;
+    
+    width:0px;
+    height: 0px;
+    
+    border-top: 8px solid transparent;
+    border-left: 15px solid #D0B6D8;
+    border-bottom: 8px solid transparent;
+    right: -15px;
+    top: 10px;
+}
+
+.message-right .speechbubble::after{
+    content: "";
+    display:block;
+    position:absolute;
+    
+    width:0px;
+    height: 0px;
+    
+    border-top: 8px solid transparent;
+    border-left: 15px solid #392338;
+    border-bottom: 8px solid transparent;
+    right: -10px;
+    top: 10px;
+}
+
+.formcontainer{
+    text-align:center;
+    margin-top: 140px;
+}
+
+.loginform{
+    text-align: center;
+    border: 2px solid #C1A1C9;
+    display: inline-block;
+    padding: 60px 40px;
+    margin: 0 auto;
+}
+
+.loginform input[type='text']{
+    width:90%;
+    border:none;
+    border-bottom: 2px solid #C1A1C9;
+    margin-right: auto;
+}
+
+.loginform input[type='text']:focus{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+.loginform input[type='text']:hover{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+.loginform input[type='password']{
+    width:90%;
+    border:none;
+    border-bottom: 2px solid #C1A1C9;
+    margin-right: auto;
+}
+
+.loginform input[type='password']:focus{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+.loginform input[type='password']:hover{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #C1A1C9; 
+  border-radius: 20px;
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #FFC494; 
+}

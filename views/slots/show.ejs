@@ -1,0 +1,79 @@
+<% include ../partials/header.ejs %>
+
+    <div class="container text-center d-flex justify-content-center mt-4">
+        <div class="card p-3 showslotcard">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h6> <%= slot.start.toDateString()%> </h6>
+                </li>
+                
+                <li class="list-group-item">
+                    <h6>Timings</h5>
+                    <h4 class="card-title"><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%> - <%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h4>
+                </li>
+                
+                <li class="list-group-item">
+                    <% if(slot.start>new Date()){
+                    var slotbg="";
+                    if(slot.vacancies && slot.vacancies>=6){
+                        slotbg="slotgreen";
+                    }
+                    else if (slot.vacancies && slot.vacancies>=3){
+                        slotbg="slotyellow";
+                    }
+                    else if(slot.vacancies){
+                        slotbg="slotred";
+                    }%>
+                        <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
+                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <p class="slotalert">ONGOING!!</p>
+                        <% } %>
+                </li>
+            </ul>
+                <%slot.bookings.forEach(function(booking){
+                        if(booking.companions==0){
+                        %>
+                            <li class="playerrow"><i class="fas fa-user usericon"></i>
+                            <a href="/profiles/other/<%= booking.userid %>" class="playername"><%=booking.firstname%></a>
+                                <form class="d-inline" method="POST" action="/slots/<%=slot._id%>/bookings/<%=booking._id%>?_method=DELETE">
+                                    <% if (booking.username==currentUser.username && (slot.end > new Date())){ %>
+                                    <button type="submit" class="trashbooking"><i class="far fa-trash-alt"></i></button>
+                                    <% } %>
+                                </form>
+                            </li>
+                        <%
+                        }
+                        
+                        else{
+                        %>
+                            <li class="playerrow"><i class="fas fa-users usericon"></i>
+                               <a href="/profiles/other/<%= booking.userid %>" class="playername"><%=booking.firstname%> + <%=booking.companions%></a>
+                                <form class="d-inline" method="POST" action="/slots/<%=slot._id%>/bookings/<%=booking._id%>?_method=DELETE">
+                                    <% if(booking.username==currentUser.username && (slot.end > new Date())){ %>
+                                    <button type="submit" class="trashbooking"><i class="far fa-trash-alt"></i></button>
+                                    <% } %>
+                                </form>
+                                
+                            </li>
+                        <%
+                        }
+                    });%>
+            <% if(!booked && (slot.start > new Date())){ %>
+            <div class="actionbutton">
+                <form action="/slots/<%=slot._id%>/bookings/new">
+                    <button type="submit">Book Slot</button>
+                </form>
+            </div>
+            <% } 
+            if(currentUser.username=="admin" || slot.vacancies>9){%>
+            <div class="delbutton">
+                <form method="POST" action="/slots/<%=slot._id%>?_method=DELETE">
+                    <button type="submit">DELETE SLOT!</button>    
+                </form>
+            </div>
+            <% } %>
+        </div>
+        
+    </div>
+    
+    <% include ../partials/footer.ejs %>

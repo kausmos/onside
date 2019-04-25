@@ -1,0 +1,31 @@
+<% include ../partials/header.ejs %>
+ <div class="container text-center d-flex justify-content-center mt-4">
+    <div class="card p-3 showslotcard">
+        
+         <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h6> <%= slot.start.toDateString()%> </h6>
+                </li>
+                
+                <li class="list-group-item">
+                    <h5 class="card-title">Timings</h5>
+                    <p><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></p>
+                </li>
+                
+                <li class="list-group-item">
+                    <h6 class="card-title">Vacancies: <%=slot.vacancies%></h6>
+                </li>
+        </ul>
+        
+        <p class="d-inline">Book for </p>
+        <form action="/slots/<%=slot.id%>/bookings" method="POST" class="form d-inline">
+           <p><%= currentUser.firstname %> + <input class="text-center mx-auto d-inline companion"  type="number" name="companions" min="0" max="<%=slot.vacancies<3?slot.vacancies:3%>" value="0" placeholder=0></p>
+            <div class="actionbutton">
+                <button type="submit">Book</button>    
+            </div>
+            
+        </form>
+        
+    </div>
+</div>
+<% include ../partials/footer.ejs %>

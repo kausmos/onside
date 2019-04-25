@@ -1,0 +1,29 @@
+<% include ./partials/header.ejs %>
+
+<div class="formcontainer">
+    <form method="POST" action="/signup" class="loginform">
+        <div class="form-group">
+        <h1>Signup!</h1>
+        </div>
+        <div class="form-group">
+        <input type="text" name="username" placeholder="username"></input>    
+        </div>
+        <div class="form-group">
+        <input type="text" name="firstname" placeholder="First Name"></input>    
+        </div>
+        <div class="form-group">
+        <input type="text" name="lastname" placeholder="Last Name"></input>    
+        </div>
+        <div class="form-group">
+        <input type="password" name="password" placeholder="password"></input>    
+        </div>
+        
+        <div class="actionbutton form-group">
+        <button type="submit">Register</button>    
+        </div>
+        
+    </form>
+</div>
+
+
+<% include ./partials/footer.ejs %>

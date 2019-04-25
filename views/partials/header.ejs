@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>ONside - Book, Play, Interact </Title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/main.css">
+        <script src="/jquery.js"></script>
+    </head>
+    <body>
+      
+        <nav class="navbar navbar-expand-lg ">
+          <div class="navbar-container container">
+          <a class="navbar-brand" href="/">ONside<span class="text-danger">/</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              
+              
+              
+              <% if (currentUser){ %>
+              
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle <%= (route!=undefined && route=="profile")?"navactive":""%>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome <%=currentUser.firstname%></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="nav-link dropdown-item" href="/profiles/self/getdetails">Edit Profile</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="nav-link dropdown-item<%= (route!=undefined && route=="bookings")?"navactive":""%>" href="/profiles/self/mybookings/">My Bookings</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="right nav-link <%= (route!=undefined && route=="slots")?"navactive":""%>" href="/slots" >Slots</a>
+              </li>
+              <li class="nav-item">
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <%= (route!=undefined && route=="messages")?"navactive":""%>" href="/messages">Messages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link logoutlink" href="/logout" class="<%= (route!=undefined && route=="profile")?"navactive":""%>">Log out</a>
+              </li>
+              <!--<li class="nav-item">-->
+              <!--  <a class="nav-link" href="/profiles/self/getdetails">Edit Profile</a>-->
+              <!--</li>-->
+              
+              
+              <% } else { %>
+              <li class="nav-item">
+                <a class="nav-link loginlink" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="right nav-link" href="/signup">Register</a>
+              </li>
+              
+              <% } %>
+              
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
+        <div class="main-container container w-100 h-100 px-3">
+        
+        <% if(success && success.length>0){ %>
+        <p class="success-message"><%= success %> <p>
+        <% } if(error && error.length>0){ %>
+        <p class="error-message"> <%= error %> <p>
+        <% } %>
+        
+    

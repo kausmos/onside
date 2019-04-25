@@ -1,0 +1,41 @@
+<% include ../partials/header.ejs %>
+
+<h6 class="text-center d-inline float-left chatuser"><%= currentUser.firstname %></h6>
+<h6 class="text-center d-inline float-right chatuser"><%= user.firstname %></h6>
+
+<div class="chatstreambox container d-flex flex-column">
+    
+        <div class="msgstreamcontainer">
+        <%
+        chatstream.messageList.forEach(function(message){ 
+        
+        if (message.content.length>0){
+        %>
+        
+        
+            <div class="messagetab <%= message.sender.userid.toString()==currentUser._id.toString() ? 'message-left' : 'message-right' %>">
+                <div class="speechbubble"><p><%= message.content %></p></div>
+            </div>
+            
+        <%
+        }
+            
+        });
+        
+        %>
+        </div>
+        <form action="/messages/<%= user._id + suffix %>" method="POST" class="newmessageform" autocomplete="off">
+            <input type ="text" placeholder="write a message for <%=user.firstname%>..." name="content">
+            <button type="submit" class="sendmessagebtn">
+                <i class="far fa-paper-plane"></i>
+            </button>
+            
+        </form>
+    
+    </div>
+    
+    
+    
+</div>
+
+<% include ../partials/footer.ejs %>
