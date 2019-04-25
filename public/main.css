@@ -206,6 +206,7 @@ ul{
 .daynav a:hover{
     color: #FFC494;;
     margin-top:5px;
+    transition: color 0.2s ease-in;
 }
 
 .daynav{
@@ -233,7 +234,7 @@ ul{
 .daynav .dayselect{
     color: #FFC494;
     font-size:1.3rem;
-    transition: color 1s;
+    transition: color 3s ease-in;
 }
 
 .actionmessage{
