@@ -99,7 +99,7 @@ router.post("/messages/:id",isLoggedIn,function(req,res){
     
     //if message made of whitespaces. do not push to db return to chatstream
     if(req.body.content.trim().length<1){
-        res.redirect("/messages/new"+req.params.id);
+        res.redirect("/messages/new/"+req.params.id);
     }
     else{
         var newMessage = {
