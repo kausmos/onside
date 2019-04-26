@@ -7,7 +7,7 @@ var User = require("../models/users");
 router.get("/slots",isLoggedIn,function(req,res){
     
     //find all slots present in database
-    Slot.find({}).populate("bookings").exec(function(err,slotlist){
+    Slot.find({}).sort({start:-1}).populate("bookings").exec(function(err,slotlist){
         if(!err){
             var dateToday=new Date();
             var dateTomorrow=new Date();
@@ -141,7 +141,7 @@ router.post("/slots", isLoggedIn, function(req,res){
                                 var endDisplay = slotObj.end.getHours()+":"+(slotObj.end.getMinutes()<10?'0':'')+slotObj.end.getMinutes();
                                 console.log("New Slot for "+day+" has been pushed to db");
                                 req.flash("success","Slot created from "+startDisplay+" to " +endDisplay);
-                                res.redirect("/slots/"+newslot._id+"/bookings/new");c9
+                                res.redirect("/slots/"+newslot._id+"/bookings/new");
                             }
                         });
                 }
