@@ -96,37 +96,45 @@ router.get("/messages/new/:id",isLoggedIn,function(req,res){
 //messages post route
 router.post("/messages/:id",isLoggedIn,function(req,res){
     console.log("Inside Messages post route");
-    var newMessage = {
+    
+    //if message made of whitespaces. do not push to db return to chatstream
+    if(req.body.content.trim().length<1){
+        res.redirect("/messages/new"+req.params.id);
+    }
+    else{
+        var newMessage = {
         content: req.body.content,
         sender:{firstname: res.locals.currentUser.firstname},
         recipient:{firstname: req.params.id}
-    };
-    
-    var newChatstream ={
+        };
         
-        sender:res.locals.currentUser._id,
-        recipient: req.params.id,
-        messageList:[]
-    };
+        var newChatstream ={
+            
+            sender:res.locals.currentUser._id,
+            recipient: req.params.id,
+            messageList:[]
+        };
+        
+        Message.create(newMessage,function(err, message){
+            if(!err){
+                message.sender.userid=res.locals.currentUser._id;
+                message.recipient.userid=req.params.id;
+                message.save();
+                console.log("Message created"+message);
+               Chatstream.create(newChatstream,function(err,stream){
+                   if(!err){
+                       console.log("Chatstream created"+stream);
+                       stream.messageList.push(message);
+                       stream.save();
+                       console.log("Message pushed into chatstream and saved"+stream);
+                       //redirect to show chatstream
+                       res.redirect("/messages/"+stream._id);
+                   }
+               }); 
+            }
+        });
+    }
     
-    Message.create(newMessage,function(err, message){
-        if(!err){
-            message.sender.userid=res.locals.currentUser._id;
-            message.recipient.userid=req.params.id;
-            message.save();
-            console.log("Message created"+message);
-           Chatstream.create(newChatstream,function(err,stream){
-               if(!err){
-                   console.log("Chatstream created"+stream);
-                   stream.messageList.push(message);
-                   stream.save();
-                   console.log("Message pushed into chatstream and saved"+stream);
-                   //redirect to show chatstream
-                   res.redirect("/messages/"+stream._id);
-               }
-           }); 
-        }
-    });
     
 });
 
@@ -154,11 +162,15 @@ router.put("/messages/:id",isLoggedIn,function(req,res){
                             function(err,streama){
                 
                if(!err && streama.length>0){
-                   streama[0].messageList.push(message);
-                   streama[0].save();
+                   
+                   if(message.content.trim().length>0){
+                        streama[0].messageList.push(message);
+                        streama[0].save();
                    //we are using socket here to utilize webSockets to show our messages in realtime
-                   io.emit('newMessage', message);
-                   console.log("inside chatstream a block");
+                        
+                       
+                   }
+                   
                    //redirect to show chatstream
                    res.redirect("/messages/"+streama[0]._id);
                }
@@ -168,13 +180,15 @@ router.put("/messages/:id",isLoggedIn,function(req,res){
                                     sender: mongoose.Types.ObjectId(res.locals.currentUser._id)},
                                     function(err,streamb){
                        if(!err && streamb.length>0){
-                        streamb[0].messageList.push(message);
-                        streamb[0].save();
+                           
+                        if(message.content.trim().length>0){
+                            streamb[0].messageList.push(message);
+                            streamb[0].save();
                         //we are using socket here to utilize webSockets to show our messages in realtime
-                        //first we check whether current user is involved in the message
-                        
-                        
-                        console.log("inside stream b block");
+                        }
+                        else{
+                            message.delete();
+                        }
                         res.redirect("/messages/"+streamb[0]._id);
                     }
                     });

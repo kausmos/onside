@@ -9,11 +9,11 @@ html,body{
 }
 
 html{
-    height:100%;
+    height:100vh;
 }
 body{
     
-    background: #392338;
+    background: #474F66;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -22,14 +22,22 @@ body{
     width:100vw;
     padding: 0px;
     margin:0px;
-    color:#D0B6D8;
+    color:#D3DBED;
     text-transform: uppercase;
     min-height:100%;
+    overflow-y: scroll;
     
 }
 
+
 .container {
     max-width: 1200px;
+}
+
+
+.navbar-brand img {
+    height:50%;
+    width:50%;
 }
 
 .navbar-container, .main-container, .footer-container{
@@ -41,11 +49,12 @@ body{
 }
 
 .navbar{
-    background:#523957;
-    display: inline-block;
-    position:fixed;
-    width: 100%;
-    top:0;
+    
+    background:#121E33;
+    -moz-box-shadow: 0 20px 10px #2D3444;
+    -webkit-box-shadow: 0 20px 10px #2D3444;
+    box-shadow: 0 20px 20px #2D3444;
+    
 }
 
 .navbar-collapse{
@@ -68,6 +77,7 @@ body{
 
 .nav-link:hover {
     color: #FFC494;
+    transition: color 0.2s ease-in;
 }
 
 li{
@@ -78,38 +88,98 @@ ul{
     padding-left: 10px;
 }
 
+.main-container .newcard{
+    margin-left: auto;
+    margin-right:auto;
+    display:block;
+}
+
+
+
+.newcard input[type='time']{
+    width:60%;
+    border:none;
+    border-bottom: 2px solid transparent;
+    margin-right: auto;
+    min-width:112px;
+}
+
+.newcard input[type='time']:focus{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+.newcard input[type='time']:hover{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+.newcard input[type='number']{
+    
+    border:none;
+    border-bottom: 2px solid #FFC494;
+    margin-right: auto;
+    display: block;
+}
+
+.newcard input[type='number']:focus{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
+
+.newcard input[type='number']:hover{
+    border-bottom: 2px solid #FFC494;
+    outline:none;
+    transition: border-bottom 1s;
+}
 
 .card{
-    background: none;
-    border: 3px solid #C1A1C9;
+    background-color: #2F3647;;
+    border: none;
     border-radius:20px;
-    color: #C1A1C9;
+    color: #97A1B7;
     min-height: 324px;
     min-width:275px;
+    display:inline-block;
+    overflow-y: hidden;
+    -moz-box-shadow: 0 0 30px #3B4256;
+    -webkit-box-shadow: 0 0 30px #3B4256;
+    box-shadow: 0 0 30px #3B4256;
+}
+
+.card-body {
+    background-color: #565F75;
+    position: relative;
+    height: 100%;
+    color: #D3DBED;
 }
 
 .card:hover{
-    border: 3px solid #FFC494;;
-    color: #FFC494;
+    -moz-box-shadow: 0 0 10px #A7ACB7;
+    -webkit-box-shadow: 0 0 10px #A7ACB7;
+    box-shadow: 0 0 10px #A7ACB7;
+    transition: box-shadow 0.4s ease-in;
 }
 
 .card-header{
-    color: #C1A1C9;
-    border-bottom: 2px solid #C1A1C9;
+    color: #97A1B7;
     padding-left: 0px;
+    background-color: #2F3647;
+    
 }
-.card:hover .card-header{
-    color: #FFC494;
-    border-bottom: 2px solid #FFC494;
-}
+
 .card a {
-    color: #C1A1C9;
+    color: #D3DBED;
     font-size: 13px;
     padding: 10px;
     
 }
-.card:hover a {
+.card a:hover {
     color: #FFC494;
+    transition: color 0.3s ease-in;
 }
 
 #companionfield{
@@ -211,11 +281,10 @@ ul{
 
 .daynav{
     text-align: left;
-    margin: 60px 0px 120px 0px;
+    margin: 60px 0px 60px 0px;
     top:60px;
     left:0;
-    
-    background: #392338;
+    background: none;
 }
 
 .dropdown-menu{
@@ -260,16 +329,16 @@ ul{
 
 .actionbutton button:hover{
     border:2px solid transparent;
-    background:#C1A1C9;
+    background:#D3DBED;
     color:#392338;
     text-transform: uppercase;
     
 }
 
 .actionbutton button{
-    border: 2px solid #C1A1C9;
+    border: 2px solid #D3DBED;
     background:none;
-    color:#C1A1C9;
+    color:#D3DBED;
     text-transform: uppercase;
 }
 
@@ -314,7 +383,7 @@ ul{
 .plus-icon {
     line-height: 170px;
     margin-top:20%;
-    
+    color: #DFE5EF
 }
 
 .noslotmessage{
@@ -323,13 +392,17 @@ ul{
 }
     
 .newslotcard{
+    background: #565F75;
     text-align: center;
     width: 253px;
     height: 302px;
+    margin-left: 5px;
+    color: #DFE5EF;
 }
 .showslotcard{
     margin-top: 60px;
 }
+
 
 
 input{
@@ -361,7 +434,11 @@ input:focus{
     border-radius: 10px;
     padding: 15px;
     height: 80%;
+    min-height: 500px;
+    max-height:800px;
+    height:70vh;
 }
+
 .msgstreamcontainer{
     overflow-y:scroll;
     padding-left: 5px;
@@ -383,7 +460,7 @@ input:focus{
 }
 
 .newmessageform input[type='text']{
-    width:90%;
+    width:100%;
     border:none;
     border-bottom: 2px solid transparent;
     margin-right: auto;
@@ -401,8 +478,18 @@ input:focus{
     transition: border-bottom 1s;
 }
 
-
+.messageinput{
+    width:80%;
+    float:left;
+    padding-left:5px;
+    box-sizing:border-box;
+}
 .sendmessagebtn{
+    width: 20%;
+    float:right;
+}
+
+.sendmessagebtn button{
     background: none;
     border:none;
     border-left: 2px solid #D0B6D8;
@@ -442,12 +529,12 @@ input:focus{
     border-radius: 5px;
     margin: 5px 0px;
     padding: 15px 30px;
+    position: sticky;
 }
 
 .speechbubble{
     border: 2px solid #D0B6D8;
     padding: 10px;
-    
     margin: 2px 10px;
     border-radius:5px;
     position: relative;
@@ -458,47 +545,72 @@ input:focus{
 
 .slotwindow{
     overflow-x:auto;
-    border-top: 2px solid #523957;
-    border-bottom: 2px solid #523957;
-    padding: 20px 0px;
+    padding: 30px 20px;
     text-align: left;
+    height: 450px;
+    -moz-box-shadow: inset 0 0 20px #3B4256;
+    -webkit-box-shadow: inset 0 0 -20px #3B4256;
+    box-shadow: inset 0 0 20px #3B4256;
+    border-radius:15px;
 }
 
-.card{
-    display:inline-block;
+.convocontainer{
+    margin-top: 30px;
+    overflow: hidden;
+    width:60%;
+    
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .indextab{
-    border: 2px solid #D0B6D8;
-    padding: 10px;
-    
-    margin: 10px 0px;
-    border-radius:5px;
+    top:0px;
+    padding: 0px;
+    max-width: 500px;
+    margin: 10px auto;
+    border-radius:15px;
     position: relative;
     display:block;
     font-size:16px;
-    color: #D0B6D8;
+    color: #D3DBED;
+    -moz-box-shadow: 0 0 20px #3B4256;
+    -webkit-box-shadow: 0 0 20px #3B4256;
+    box-shadow: 0 0 20px #3B4256;
+    
 }
 
+.sender-index{
+    background-color:#2F3647;
+    margin: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
 .sender-index, .lastmessage-index {
-    padding:5px;
+    padding:15px;
+    
 }
 .indextab p{
     font-size:12px;
     text-transform: none;
+    
 }
 
 .indextab:hover{
-    border: 2px solid #FF947F;
-    color: #FF947F;
-    transform: border 1s;
-    transform: color 1s;
+    
+    -moz-box-shadow: 0 0 10px #A7ACB7;
+    -webkit-box-shadow: 0 0 10px #A7ACB7;
+    box-shadow: 0 0 10px #A7ACB7;
+    transition: box-shadow 0.4s ease-in;
+    
 }
 
 .lastmessage-index{
     padding:10px;
-    background: #523957;
-    
+    background: #565F75;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     margin-left: auto;
     margin-right:auto;
 }
@@ -538,7 +650,7 @@ input:focus{
     height: 0px;
     
     border-top: 8px solid transparent;
-    border-right: 15px solid #392338;
+    border-right: 15px solid #474F66;
     border-bottom: 8px solid transparent;
     left: -10px;
     top: 10px;
@@ -568,7 +680,7 @@ input:focus{
     height: 0px;
     
     border-top: 8px solid transparent;
-    border-left: 15px solid #392338;
+    border-left: 15px solid #474F66;
     border-bottom: 8px solid transparent;
     right: -10px;
     top: 10px;
@@ -581,16 +693,21 @@ input:focus{
 
 .loginform{
     text-align: center;
-    border: 2px solid #C1A1C9;
     display: inline-block;
     padding: 60px 40px;
     margin: 0 auto;
+    border-radius: 10px;
+    color: #D3DBED;
+    background-color: #565F75;
+    -moz-box-shadow: 0 0 20px #3B4256;
+    -webkit-box-shadow: 0 0 20px #3B4256;
+    box-shadow: 0 0 20px #3B4256;
 }
 
 .loginform input[type='text']{
     width:90%;
     border:none;
-    border-bottom: 2px solid #C1A1C9;
+    border-bottom: 2px solid #D3DBED;
     margin-right: auto;
 }
 
@@ -609,7 +726,7 @@ input:focus{
 .loginform input[type='password']{
     width:90%;
     border:none;
-    border-bottom: 2px solid #C1A1C9;
+    border-bottom: 2px solid #D3DBED;
     margin-right: auto;
 }
 
@@ -625,6 +742,7 @@ input:focus{
     transition: border-bottom 1s;
 }
 
+/*scrollbar styling for chrome*/
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -646,4 +764,22 @@ input:focus{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #FFC494; 
+}
+
+/*placeholder styling for inputs*/
+::-webkit-input-placeholder {
+  color: #DFE5EF;
+  
+}
+::-moz-placeholder {
+  color: #DFE5EF;
+  
+}
+:-ms-input-placeholder {
+  color: #DFE5EF;
+  
+}
+::placeholder {
+  color: #DFE5EF;
+  
 }

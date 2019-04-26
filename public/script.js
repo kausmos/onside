@@ -56,3 +56,8 @@ function showSlots(that){
     }
     
 }
+
+//script for scrolling to the bottom of messages in chat stream
+$(".msgstreamcontainer").scrollTop($(".msgstreamcontainer")[0].scrollHeight);
+
+$(".slotwindow").scrollLeft($(".slotwindow")[0].scrollWidth);

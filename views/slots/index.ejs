@@ -39,28 +39,30 @@
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
-                        </div>
+                        
                         <% if(slot.start>new Date()){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
                         <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
-                        <ul class="list-group list-group-flush playerlist">
-                            <%slot.bookings.forEach(function(booking){
-                                if(booking.companions==0){
-                                %>
-                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
-                                <%
-                                }
-                                
-                                else{
-                                %>
-                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
-                                <%
-                                }
-                            });%>
-                        </ul>
-                        
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush playerlist">
+                                <%slot.bookings.forEach(function(booking){
+                                    if(booking.companions==0){
+                                    %>
+                                        <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                    <%
+                                    }
+                                    
+                                    else{
+                                    %>
+                                        <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                    <%
+                                    }
+                                });%>
+                            </ul>
+                        </div>
                     </a>
                 </div>
             </a>
@@ -102,28 +104,29 @@
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
-                        </div>
                         <% if(slot.start>new Date()){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
                         <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
-                        <ul class="list-group list-group-flush playerlist">
-                            <%slot.bookings.forEach(function(booking){
-                                if(booking.companions==0){
-                                %>
-                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
-                                <%
-                                }
-                                
-                                else{
-                                %>
-                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
-                                <%
-                                }
-                            });%>
-                        </ul>
-                        
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush playerlist">
+                                <%slot.bookings.forEach(function(booking){
+                                    if(booking.companions==0){
+                                    %>
+                                        <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                    <%
+                                    }
+                                    
+                                    else{
+                                    %>
+                                        <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                    <%
+                                    }
+                                });%>
+                            </ul>
+                        </div>
                     </a>
                 </div>
             </a>
@@ -162,29 +165,30 @@
                     <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
-                            <h6><%= slot.start.toDateString() %></h6>    
-                        </div>
+                            <h6><%= slot.start.toDateString() %></h6>
                         <% if(slot.start>new Date()){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
                         <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
-                        <ul class="list-group list-group-flush playerlist">
-                            <%slot.bookings.forEach(function(booking){
-                                if(booking.companions==0){
-                                %>
-                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
-                                <%
-                                }
-                                
-                                else{
-                                %>
-                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
-                                <%
-                                }
-                            });%>
-                        </ul>
-                        
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush playerlist">
+                                <%slot.bookings.forEach(function(booking){
+                                    if(booking.companions==0){
+                                    %>
+                                        <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                    <%
+                                    }
+                                    
+                                    else{
+                                    %>
+                                        <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                    <%
+                                    }
+                                });%>
+                            </ul>
+                        </div>
                     </a>
                 </div>
             </a>
@@ -221,28 +225,30 @@
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
-                        </div>
+                        
                         <% if(slot.start>new Date()){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
                         <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
-                        <ul class="list-group list-group-flush playerlist">
-                            <%slot.bookings.forEach(function(booking){
-                                if(booking.companions==0){
-                                %>
-                                    <li><i class="fas fa-user"></i><%=booking.firstname%></li>
-                                <%
-                                }
-                                
-                                else{
-                                %>
-                                    <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
-                                <%
-                                }
-                            });%>
-                        </ul>
-                        
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush playerlist">
+                                <%slot.bookings.forEach(function(booking){
+                                    if(booking.companions==0){
+                                    %>
+                                        <li><i class="fas fa-user"></i><%=booking.firstname%></li>
+                                    <%
+                                    }
+                                    
+                                    else{
+                                    %>
+                                        <li><i class="fas fa-users"></i><%=booking.firstname%>+<%=booking.companions%></li>
+                                    <%
+                                    }
+                                });%>
+                            </ul>
+                        </div>
                     </a>
                 </div>
             </a>

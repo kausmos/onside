@@ -1,10 +1,13 @@
 <% include ../partials/header.ejs %>
 
-<h6 class="text-center d-inline float-left chatuser"><%= currentUser.firstname %></h6>
-<h6 class="text-center d-inline float-right chatuser"><%= user.firstname %></h6>
 
-<div class="chatstreambox container d-flex flex-column">
+<div class="convocontainer">
     
+    <div class="chatstreambox container d-flex flex-column">
+        <div class="chatuser">
+        <h6 class="text-center d-inline float-left"><%= currentUser.firstname %></h6>
+        <h6 class="text-center d-inline float-right"><%= user.firstname %></h6>    
+        </div>
         <div class="msgstreamcontainer">
         <%
         chatstream.messageList.forEach(function(message){ 
@@ -25,17 +28,20 @@
         %>
         </div>
         <form action="/messages/<%= user._id + suffix %>" method="POST" class="newmessageform" autocomplete="off">
-            <input type ="text" placeholder="write a message for <%=user.firstname%>..." name="content">
-            <button type="submit" class="sendmessagebtn">
-                <i class="far fa-paper-plane"></i>
-            </button>
+            <div class="messageinput">
+            <input type ="text" placeholder="write a message for <%=user.firstname%>..." required name="content">
+            </div>
+            <div class="sendmessagebtn">
+                <button type="submit">
+                    <i class="far fa-paper-plane"></i>
+                </button>
+            </div>
             
         </form>
-    
     </div>
     
-    
-    
+</div>
+
 </div>
 
 <% include ../partials/footer.ejs %>

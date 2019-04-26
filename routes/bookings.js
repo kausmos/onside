@@ -137,7 +137,7 @@ router.delete("/slots/:id/bookings/:bid",function(req,res){
 
 
 function isLoggedIn(req,res,next){
-    if (req.isAuthenticated){
+    if (req.isAuthenticated()){
         next();
     }
     else{

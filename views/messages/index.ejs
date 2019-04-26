@@ -1,23 +1,28 @@
 <% include ../partials/header.ejs %>
 
-<h5 class="text-center">Conversations</h5>
 
-<div class="d-flex flex-column">
-    
+
+
+<div class="convocontainer">
+        <h5 class="text-center">Conversations</h5>
         
         <%
         relevantstreams.forEach(function(chatstream){ %>
         
         <a href="/messages/<%= chatstream._id %>">
             <div class="indextab">
-            <% 
-            var sender=chatstream.sender.firstname;
-            if (chatstream.sender.firstname==currentUser.firstname){
-                sender = chatstream.recipient.firstname;
-            }    
-            %>
-            <h6 class="sender-index"> <%= sender %> : </h6>
-            <p class="lastmessage-index"> <%= chatstream.messageList.slice(-1)[0].content %></p>
+                <% 
+                var sender=chatstream.sender.firstname;
+                if (chatstream.sender.firstname==currentUser.firstname){
+                    sender = chatstream.recipient.firstname;
+                }    
+                %>
+                <div class="sender-index">
+                    <h6> <%= sender %> : </h6>    
+                </div>
+                <div class="lastmessage-index">
+                    <p> <%= chatstream.messageList.slice(-1)[0].content %></p>
+                </div>
             </div>    
         </a>
         
