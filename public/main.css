@@ -29,15 +29,27 @@ body{
     
 }
 
+.navbar{
+    height: 100px;
+}
 
 .container {
     max-width: 1200px;
 }
 
 
-.navbar-brand img {
-    height:50%;
-    width:50%;
+.navbar-brand {
+    width: 136px;
+    height: 45px;
+}
+.navbar-brand img{
+    position:relative;
+    left: 0px;
+    top: -70px;
+    bottom: 0px;
+    height:500%;
+    margin-bottom: 10px;
+    
 }
 
 .navbar-container, .main-container, .footer-container{
@@ -63,7 +75,7 @@ body{
 
 .navbar-nav .nav-link {
     color: #FF947F;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 
@@ -192,15 +204,15 @@ ul{
 
 
 .slotgreen{
-    width:25px;
+    width:28px;
     height:18px;
     border-radius:2px;
-    font-size:16px;
+    font-size:20px;
     color:#000;
     line-height:18px;
     text-align:center;
     display: inline-block;
-    background:#8AB362;
+    background:#72FF38;
     margin-top:2px;
     
 }
@@ -214,7 +226,7 @@ ul{
     line-height:20px;
     text-align:center;
     display: inline-block;
-    background:#FFC494
+    background:#FAFF00
 }
 
 .slotred{
@@ -226,7 +238,7 @@ ul{
     line-height:20px;
     text-align:center;
     display: inline-block;
-    background:#D33361
+    background:#FF4C3D
 }
 
 
@@ -288,11 +300,11 @@ ul{
 }
 
 .dropdown-menu{
-    background: #523957;
+    background: #1D2E47;
 }
 
 .dropdown-item:hover{
-    background: #392338;
+    background: #121E33;
 }
 .dropdown-divider {
     height: 0;
@@ -432,7 +444,7 @@ input:focus{
 .chatstreambox{
     border: 2px solid #D0B6D8;
     border-radius: 10px;
-    padding: 15px;
+    padding: 8px 15px;
     height: 80%;
     min-height: 500px;
     max-height:800px;
@@ -524,8 +536,8 @@ input:focus{
 }
 
 .chatuser{
-    color: #FF947F;
-    background: #523957;
+    color: #FFC494;
+    background: #121E33;
     border-radius: 5px;
     margin: 5px 0px;
     padding: 15px 30px;
@@ -551,16 +563,20 @@ input:focus{
     -moz-box-shadow: inset 0 0 20px #3B4256;
     -webkit-box-shadow: inset 0 0 -20px #3B4256;
     box-shadow: inset 0 0 20px #3B4256;
-    border-radius:15px;
+    border-radius:10px;
+    padding-top: 60px;
 }
 
 .convocontainer{
     margin-top: 30px;
     overflow: hidden;
     width:60%;
-    
     margin-left: auto;
     margin-right: auto;
+}
+
+.convocontainer h5{
+    color:#FF947F;
 }
 
 .indextab{
@@ -568,7 +584,8 @@ input:focus{
     padding: 0px;
     max-width: 500px;
     margin: 10px auto;
-    border-radius:15px;
+    border-radius:5px;
+    
     position: relative;
     display:block;
     font-size:16px;
@@ -582,8 +599,8 @@ input:focus{
 .sender-index{
     background-color:#2F3647;
     margin: 0;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 
@@ -592,7 +609,7 @@ input:focus{
     
 }
 .indextab p{
-    font-size:12px;
+    font-size:16px;
     text-transform: none;
     
 }
@@ -609,8 +626,6 @@ input:focus{
 .lastmessage-index{
     padding:10px;
     background: #565F75;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
     margin-left: auto;
     margin-right:auto;
 }
@@ -625,6 +640,10 @@ input:focus{
     position:relative;
 }
 
+.message-right .speechbubble{
+    
+    color:#FF947F;
+}
 
 .message-left .speechbubble::before{
     content: "";

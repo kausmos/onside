@@ -15,10 +15,6 @@ router.get("/slots",isLoggedIn,function(req,res){
             var dateDayAfter=new Date();
             dateDayAfter.setDate(dateDayAfter.getDate()+2);
             
-            //ijrrelevant?
-            var daysOfTheWeek =["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-            var monthsOfYear = ["Jan","Feb"]
-            
             //find all slots booked for current year
             var slotscurrentyear=slotlist.filter(function(slotelem){
                 return(slotelem.start.getFullYear()==dateToday.getFullYear());
@@ -41,7 +37,7 @@ router.get("/slots",isLoggedIn,function(req,res){
             
             res.render("slots/index.ejs",{slotscurrentyear:slotscurrentyear,slotstoday:slotstoday,
                                             slotstomorrow:slotstomorrow, slotsdayafter:slotsdayafter,
-                                            daysOfTheWeek:daysOfTheWeek,route:"slots"});
+                                            route:"slots"});
         }
         
         else if(err){

@@ -1,10 +1,10 @@
 
 <% include ../partials/header.ejs %>
 
-<!--<h1 class="display-4 text-center">SLOTS</h1>-->
 <% 
-    var today= new Date();
-    var dayaftertomorrow = daysOfTheWeek[today.getDay()+2];
+    var dayaftertomorrow= new Date();
+    dayaftertomorrow.setDate(dayaftertomorrow.getDate()+2);
+    var dayaftertomorrow = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][dayaftertomorrow.getDay()]
     
 %>
 <div class="daynav"><a href="#" class="dayselect">Today</a><a href="#">Tomorrow</a><a href="#"><%= dayaftertomorrow%></a><a href="#">All Slots</a></div>
