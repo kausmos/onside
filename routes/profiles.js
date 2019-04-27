@@ -5,10 +5,11 @@ var Booking = require("../models/bookings");
 var User = require("../models/users");
 var Message = require("../models/messages");
 var Chatstream = require("../models/chatstreams");
+var middlewareObj= require("../middleware");
 
 //---------my booked slots-------------------
 
-router.get("/profiles/self/mybookings",isLoggedIn,function(req,res){
+router.get("/profiles/self/mybookings",middlewareObj.isLoggedIn,function(req,res){
   //find all slots in db
   Slot.find({}).populate("bookings").exec(function(err,slotlist){
      
@@ -78,7 +79,7 @@ router.get("/profiles/self/mybookings",isLoggedIn,function(req,res){
 });
 
 //Route to get detials from the new user after registration
-router.get("/profiles/self/getdetails",isLoggedIn,function(req,res){
+router.get("/profiles/self/getdetails",middlewareObj.isLoggedIn,function(req,res){
     
     res.render("profiles/getdetails",{route:"profile"});
     
@@ -86,7 +87,7 @@ router.get("/profiles/self/getdetails",isLoggedIn,function(req,res){
 
 
 //profile edit route. accessed during edit or after registration
-router.post("/profiles/self/getdetails",isLoggedIn,function(req,res){
+router.post("/profiles/self/getdetails",middlewareObj.isLoggedIn,function(req,res){
     
     //get profile details from user
     
@@ -129,12 +130,12 @@ router.post("/profiles/self/getdetails",isLoggedIn,function(req,res){
 
 
 
-router.get("/profiles/self/show",isLoggedIn,function(req,res){
+router.get("/profiles/self/show",middlewareObj.isLoggedIn,function(req,res){
     res.render("profiles/showself.ejs",{route:"profile"});
     
 });
 
-router.get("/profiles/other/:id",isLoggedIn,function(req,res){
+router.get("/profiles/other/:id",middlewareObj.isLoggedIn,function(req,res){
     
     if(req.params.id==res.locals.currentUser._id){
         res.redirect("/profiles/self/show");
@@ -152,17 +153,5 @@ router.get("/profiles/other/:id",isLoggedIn,function(req,res){
     
 });
 
-   
-
-
-function isLoggedIn(req,res,next){
-    if (req.isAuthenticated()){
-        next();
-    }
-    else{
-        req.flash("error","You need to be logged in to do that!");
-        res.redirect("/login");
-    }
-}
 
 module.exports=router;

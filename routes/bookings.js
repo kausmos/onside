@@ -3,10 +3,11 @@ var router=express.Router({mergeParams:true});
 var Slot = require("../models/slots");
 var Booking = require("../models/bookings");
 var User = require("../models/users");
+var middlewareObj= require("../middleware");
 
 //-----------Bookings new route--------
 
-router.get("/slots/:id/bookings/new",isLoggedIn,function(req,res){
+router.get("/slots/:id/bookings/new",middlewareObj.isLoggedIn,function(req,res){
     
     var id=req.params.id;
     Slot.findById(id,function(err,slot){
@@ -19,7 +20,7 @@ router.get("/slots/:id/bookings/new",isLoggedIn,function(req,res){
 
 //----Bookings new post route--------
 
-router.post("/slots/:id/bookings",isLoggedIn,notAlreadyBooked,function(req,res){
+router.post("/slots/:id/bookings",middlewareObj.isLoggedIn,middlewareObj.notAlreadyBooked,function(req,res){
    console.log("Inside booking post route");
    var slotID=req.params.id;
    var comp=req.body.companions;
@@ -84,7 +85,7 @@ router.post("/slots/:id/bookings",isLoggedIn,notAlreadyBooked,function(req,res){
 
 //----Bookings Delete Route---------
 
-router.delete("/slots/:id/bookings/:bid",function(req,res){
+router.delete("/slots/:id/bookings/:bid",middlewareObj.isLoggedIn,function(req,res){
     var slotid=req.params.id;
     var bid=req.params.bid;
     Slot.findById(slotid,function(err,slot){
@@ -135,31 +136,5 @@ router.delete("/slots/:id/bookings/:bid",function(req,res){
     });
 });
 
-
-function isLoggedIn(req,res,next){
-    if (req.isAuthenticated()){
-        next();
-    }
-    else{
-        req.flash("error","You need to be logged in to do that")
-        res.redirect("/login");
-    }
-}
-
-function notAlreadyBooked(req,res,next){
-    var loggedInUser=res.locals.currentUser.username;
-    var slotid=req.params.id;
-    Slot.findById(slotid).populate("bookings").exec(function(err,slot){
-        if(!err){
-            slot.bookings.forEach(function checkUserInBookings(booking){
-                if(booking.username==loggedInUser){
-                    req.flash("error","Sorry, you can book a slot only once.")
-                    res.redirect("/slots/"+slotid);
-                }
-            });
-        }
-    });
-    next();
-}
 
 module.exports=router;

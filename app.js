@@ -15,7 +15,7 @@ const User=require("./models/users.js");
 const Message=require("./models/messages.js");
 const Chatstream=require("./models/chatstreams.js");
 const methodOverride=require("method-override");
-const indexRoutes=require("./routes/index");
+const indexRoutes=require("./routes/index")(io);
 const bookingRoutes=require("./routes/bookings");
 const slotRoutes=require("./routes/slots");
 const profileRoutes=require("./routes/profiles");
@@ -72,12 +72,10 @@ app.use(function(req,res,next){
 
 
 //------------------connecting to mongo server--------------------
-// mongoose.connect("mongodb://localhost/onside",{useNewUrlParser: true});
-mongoose.connect("mongodb://kaustuva:T4X1DR1V3R@ds147566.mlab.com:47566/onside",{useNewUrlParser: true});
+mongoose.connect("mongodb://localhost/onside",{useNewUrlParser: true});
+// mongoose.connect("mongodb://kaustuva:T4X1DR1V3R@ds147566.mlab.com:47566/onside",{useNewUrlParser: true});
 
-io.on('connection', function(socket){
-  
-});
+
 
 http.listen(process.env.PORT, process.env.IP, function(req,res){
   console.log('listening on'+process.env.PORT);

@@ -1,5 +1,12 @@
 var socket = io();
 
+socket.on('newmessage', function(msg){
+    $('.msgstreamcontainer').append('<div class="messagetab message-left"><div class="speechbubble"><p>' + msg+'</p></div></div>');
+    });
+
+
+    
+
 //select the anchor tags using jquery and add events to them
 $(".daynav a").on("click",function(){
    highlightDay(this);

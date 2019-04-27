@@ -2,9 +2,10 @@ var express=require("express");
 var router=express.Router({mergeParams:true});
 var Slot = require("../models/slots");
 var User = require("../models/users");
+var middlewareObj= require("../middleware");
 
 //slots index route
-router.get("/slots",isLoggedIn,function(req,res){
+router.get("/slots",middlewareObj.isLoggedIn,function(req,res){
     
     //find all slots present in database
     Slot.find({}).sort({start:-1}).populate("bookings").exec(function(err,slotlist){
@@ -51,7 +52,7 @@ router.get("/slots",isLoggedIn,function(req,res){
 
 
 //slots post route non-admin
-router.post("/slots", isLoggedIn, function(req,res){
+router.post("/slots",middlewareObj.isLoggedIn, function(req,res){
     //create new date objexts to store slot timings
     var day=req.query.day;
     var slotstart=new Date();
@@ -164,7 +165,7 @@ router.post("/slots", isLoggedIn, function(req,res){
 });
 
 //slots post route for admin
-router.post("/slots/admin",isLoggedIn,isAdmin,function(req,res){
+router.post("/slots/admin",middlewareObj.isLoggedIn,middlewareObj.isAdmin,function(req,res){
     
     //get the data from the ejs form
     var date = req.body.date;
@@ -259,7 +260,7 @@ router.post("/slots/admin",isLoggedIn,isAdmin,function(req,res){
 //===========New Slot Route==============
 
 //this will render the form according to admin status and parameters
-router.get("/slots/new",isLoggedIn,function(req,res){
+router.get("/slots/new",middlewareObj.isLoggedIn,function(req,res){
     //if user is admin render date customizable form
     if(res.locals.currentUser.username=="admin"){
       res.render("slots/newadmin",{route:"slots"})  
@@ -291,7 +292,7 @@ router.get("/slots/new",isLoggedIn,function(req,res){
 
 
 //=========Show Slot Routes==============
-router.get("/slots/:id",isLoggedIn,function(req,res){
+router.get("/slots/:id",middlewareObj.isLoggedIn,function(req,res){
     
     var id= req.params.id;
     
@@ -316,7 +317,7 @@ router.get("/slots/:id",isLoggedIn,function(req,res){
 
 //--------Slot Delete Route----------
 
-router.delete("/slots/:id",isLoggedIn,function(req,res){
+router.delete("/slots/:id",middlewareObj.isLoggedIn,function(req,res){
     
     
         Slot.findById(req.params.id,function(err, slot) {
@@ -356,30 +357,10 @@ router.delete("/slots/:id",isLoggedIn,function(req,res){
 
 //--------------currently not being accessed------
 
-router.get("slots/:id/edit",isLoggedIn,function(req,res){
-    //takes some info about the booking from the id and then renders a form for editing with some of the data passed along
-    res.render("");
-});
-
-function isLoggedIn(req,res,next){
-    if (req.isAuthenticated()){
-        next();
-    }
-    else{
-        req.flash("error","You need to be logged in to do that!")
-        res.redirect("/login");
-    }
-}
-
-function isAdmin(req,res,next){
-    if (res.locals.currentUser.username=="admin"){
-        next();
-    }
-    else{
-        req.flash("error","You need to be the admin to do that!")
-        res.redirect("/slots")
-    }
-}
+// router.get("slots/:id/edit",isLoggedIn,function(req,res){
+//     //takes some info about the booking from the id and then renders a form for editing with some of the data passed along
+//     res.render("");
+// });
 
 
 

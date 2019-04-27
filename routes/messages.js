@@ -6,13 +6,13 @@ var User = require("../models/users");
 var Message = require("../models/messages");
 var Chatstream = require("../models/chatstreams");
 const mongoose= require("mongoose");
-
+var middlewareObj= require("../middleware");
 
 var returnRouter = function(io){
 
 //messages index route
 
-router.get("/messages",isLoggedIn,function(req,res){
+router.get("/messages",middlewareObj.isLoggedIn,function(req,res){
    console.log("Inside messages index route");
    console.log(res.locals.currentUser._id);
    var relevantstreams=[];
@@ -40,7 +40,7 @@ router.get("/messages",isLoggedIn,function(req,res){
 });
 
 //messages new route - determine whether new form goes to edit or post
-router.get("/messages/new/:id",isLoggedIn,function(req,res){
+router.get("/messages/new/:id",middlewareObj.isLoggedIn,function(req,res){
     
     //check if the other user is a sender of messages
     Chatstream.find({sender:req.params.id, recipient:res.locals.currentUser._id},function(err,streama){
@@ -94,7 +94,7 @@ router.get("/messages/new/:id",isLoggedIn,function(req,res){
 
 
 //messages post route
-router.post("/messages/:id",isLoggedIn,function(req,res){
+router.post("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
     console.log("Inside Messages post route");
     
     //if message made of whitespaces. do not push to db return to chatstream
@@ -139,7 +139,7 @@ router.post("/messages/:id",isLoggedIn,function(req,res){
 });
 
 //messages put route
-router.put("/messages/:id",isLoggedIn,function(req,res){
+router.put("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
     console.log("Inside PUT route");
     //create message template to be pushed to DB from form data
     var newMessage = {
@@ -167,6 +167,17 @@ router.put("/messages/:id",isLoggedIn,function(req,res){
                         streama[0].messageList.push(message);
                         streama[0].save();
                    //we are using socket here to utilize webSockets to show our messages in realtime
+                        User.findById(req.params.id,function(err,user){
+                            if(!err){
+                                console.log("pushing to"+user.socketid);
+                                io.on('connection', function(socket){
+                                  socket.on('newmessage',function(msg){
+                                      io.to(user.socketid).emit('newmessage', message);
+                                  })
+                                });
+                                
+                            }
+                        });
                         
                        
                    }
@@ -185,6 +196,16 @@ router.put("/messages/:id",isLoggedIn,function(req,res){
                             streamb[0].messageList.push(message);
                             streamb[0].save();
                         //we are using socket here to utilize webSockets to show our messages in realtime
+                        User.findById(req.params.id,function(err,user){
+                            if(!err){
+                                console.log("pushing to"+user.socketid);
+                                io.on('connection', function(socket){
+                                  socket.on('newmessage',function(msg){
+                                      io.to(user.socketid).emit('newmessage', message);
+                                  })
+                                });
+                            }
+                        })
                         }
                         else{
                             message.delete();
@@ -202,7 +223,7 @@ router.put("/messages/:id",isLoggedIn,function(req,res){
 
 
 //messages show route
-router.get("/messages/:streamid",isLoggedIn,function(req,res){
+router.get("/messages/:streamid",middlewareObj.isLoggedIn,function(req,res){
     
     Chatstream.findById(req.params.streamid)
     .populate("recipient")
@@ -241,15 +262,6 @@ router.get("/messages/:streamid",isLoggedIn,function(req,res){
 
 
 
-function isLoggedIn(req,res,next){
-    if (req.isAuthenticated()){
-        next();
-    }
-    else{
-        req.flash("error","You need to be logged in to do that!");
-        res.redirect("/login");
-    }
-}
 
     return router;
 };

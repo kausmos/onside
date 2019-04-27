@@ -10,7 +10,8 @@ var userSchema= new mongoose.Schema({
     associations: [String],
     favteams:[String],
     strongfoot: String,
-    hometown: String
+    hometown: String,
+    socket:String
     
 });
 
