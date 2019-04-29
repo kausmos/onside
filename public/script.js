@@ -1,7 +1,8 @@
 var socket = io();
 
-socket.on('newmessage', function(msg){
-    $('.msgstreamcontainer').append('<div class="messagetab message-left"><div class="speechbubble"><p>' + msg+'</p></div></div>');
+socket.on("chat message", function(msg){
+    // $('.msgstreamcontainer').append('<div class="messagetab message-left"><div class="speechbubble"><p>' + msg+'</p></div></div>');
+    alert('new message');
     });
 
 

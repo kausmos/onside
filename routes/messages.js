@@ -7,8 +7,9 @@ var Message = require("../models/messages");
 var Chatstream = require("../models/chatstreams");
 const mongoose= require("mongoose");
 var middlewareObj= require("../middleware");
+var socketList = require("../socketinfo.js");
 
-var returnRouter = function(io){
+var returnRouter = function(io,myEmitter){
 
 //messages index route
 
@@ -169,14 +170,15 @@ router.put("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
                    //we are using socket here to utilize webSockets to show our messages in realtime
                         User.findById(req.params.id,function(err,user){
                             if(!err){
-                                console.log("pushing to"+user.socketid);
-                                io.on('connection', function(socket){
-                                  socket.on('newmessage',function(msg){
-                                      io.to(user.socketid).emit('newmessage', message);
-                                  })
-                                });
+                                    var data = {
+                                        receiver: user.username,
+                                        msg: message.content
+                                    };
+                                    myEmitter.emit("chat message",data);
+                                
                                 
                             }
+                            
                         });
                         
                        
@@ -198,14 +200,12 @@ router.put("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
                         //we are using socket here to utilize webSockets to show our messages in realtime
                         User.findById(req.params.id,function(err,user){
                             if(!err){
-                                console.log("pushing to"+user.socketid);
-                                io.on('connection', function(socket){
-                                  socket.on('newmessage',function(msg){
-                                      io.to(user.socketid).emit('newmessage', message);
-                                  })
-                                });
+                                io.on("connect",function(socket){
+                                    socketList.getSocket(user.username).emit("newmessage");    
+                                })
+                                
                             }
-                        })
+                        });
                         }
                         else{
                             message.delete();

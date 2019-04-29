@@ -89,24 +89,19 @@ router.get("/profiles/self/getdetails",middlewareObj.isLoggedIn,function(req,res
 //profile edit route. accessed during edit or after registration
 router.post("/profiles/self/getdetails",middlewareObj.isLoggedIn,function(req,res){
     
+    console.log("get details route:");
+    console.log("position object:"+ req.body.position);
+    
     //get profile details from user
     
-    var positions=[];
-    positions.push(req.body.positiona);
-    positions.push(req.body.positionb);
-    positions.push(req.body.positionc);
-    
-    var associations=req.body.associations.split(",");
-    
-    var favteams=req.body.favteams.split(",");
-    
+    var positions=[req.body.positiona, req.body.positionb, req.body.positionc]
+    var associations=[req.body.associationa,req.body.associationb,req.body.associationc]
+    var favteams=[req.body.favteama,req.body.favteamb,req.body.favteamc]
     var strongfoot=req.body.strongfoot;
-    
     var hometown = req.body.hometown;
     
     
     //Look for the user model using user id
-    console.log("Current User"+ res.locals.currentUser);
     User.findById(res.locals.currentUser._id, function(err,user){
         if(!err){
             //update information in the document
@@ -115,7 +110,6 @@ router.post("/profiles/self/getdetails",middlewareObj.isLoggedIn,function(req,re
             user.favteams=favteams;
             user.strongfoot=strongfoot;
             user.hometown=hometown;
-            
             user.save();
         }
         

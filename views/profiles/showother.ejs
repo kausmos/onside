@@ -1,13 +1,23 @@
 <% include ../partials/header.ejs %>
 
-<h1 class="display-4 text-center">My Profile</h1>
 
-<div class=" container">
-    
-        
-        <p>All the data such as playing position etc. come here</p>
-        <p>for user <%= user.firstname %></p>
-        <a class="btn" href="/messages/new/<%= user._id %>">Message</a>
+
+<div class="convocontainer">
+        <h5 class="display-4 text-center"><%= user.firstname %> <%= user.lastname %></h5>
+        <div class="detailscap">
+                <div class="delbutton">
+                        <a href="/messages/new/<%= user._id %>"><button>Message</button></a>        
+                </div>
+        </div>
+        <div class= "profilecard">
+                <h6><span>Name:</span><%= user.firstname %> <%= user.lastname %></h6>
+                <h6><span>Position(s):</span><%= user.positions.map(x=>x.toUpperCase()) %> </h6>
+                <h6><span>Associations(Teams Played for):</span><%= user.associations %> </h6>
+                <h6><span>Favourite Teams:</span> <%= user.favteams %> </p>
+                <h6><span>Stronger Foot:</span> <%= user.strongfoot=="r" ? "Right" : "Left" %> </h6>
+                
+                
+        </div>
         
 </div>
 

@@ -1,10 +1,21 @@
 <% include ../partials/header.ejs %>
 
-<h1 class="display-4 text-center">New message</h1>
-<form action="/messages/<%= user._id + suffix %>" method="POST">
-    <input type ="text" placeholder="write a message for <%=user.firstname%>" required name="content">
-    <input type="submit"></input>
-</form>
+<div class="convocontainer">
+    
+    
+    <h5 class="display-4 text-center">Start a conversation</h5>
+    <div class="detailsform">
+        <form action="/messages/<%= user._id + suffix %>" method="POST" class="loginform">
+            <input type ="text" placeholder="message for <%=user.firstname%>" required name="content">
+            <div class="actionbutton mt-6">
+                <button type="submit">Send</button>    
+            </div>
+            
+        </form>
+    </div>
+    
+</div>
+
 
 
 

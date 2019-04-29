@@ -5,8 +5,10 @@ var Booking=require("../models/bookings");
 const User = require("../models/users");
 const passport = require("passport");
 var middlewareObj= require("../middleware");
+var socketList = require("../socketinfo.js");
 
-var returnRouter = function(io){
+
+var returnRouter = function(io,myEmitter){
 
     router.get("/", function(req,res){
         res.render("landing");
@@ -26,7 +28,8 @@ var returnRouter = function(io){
                             if (!user) { return res.redirect('/login'); }
                             req.logIn(user, function(err) {
                               if (err) { return next(err); }
-                              
+                              myEmitter.emit("newuser",user.username);
+
                               return res.redirect('/slots');
                             });
                           })(req, res, next);
