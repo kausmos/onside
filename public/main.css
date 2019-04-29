@@ -1,5 +1,9 @@
  
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+.zoom{
+    zoom: 90%;
+}
 a:hover {
     text-decoration: none;
 }
