@@ -1,17 +1,24 @@
 <% include ../partials/header.ejs %>
 
-<h1 class="display-4 text-center">My Profile</h1>
 
-<div class=" container">
-    
+
+<div class="convocontainer">
+        <h5 class="display-4 text-center">My Profile</h5>
+        <div class="detailscap">
+                <div class="delbutton">
+                        <a href="/profiles/self/getdetails"><button>Edit</button></a>        
+                </div>
+        </div>
+        <div class= "profilecard">
+                <h6><span>Name:</span><%= currentUser.firstname %> <%= currentUser.lastname %></h6>
+                <h6><span>Position(s):</span><%= currentUser.positions.map(x=>x.toUpperCase()) %> </h6>
+                <h6><span>Associations(Teams Played for):</span><%= currentUser.associations %> </h6>
+                <h6><span>Favourite Teams:</span> <%= currentUser.favteams %> </p>
+                <h6><span>Stronger Foot:</span> <%= currentUser.strongfoot=="r" ? "Right" : "Left" %> </h6>
+                
+                
+        </div>
         
-        <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
-        <p>Position: <%= currentUser.positions.map(x=>x.toUpperCase()) %> </p>
-        <p>Associations(Teams Played for): <%= currentUser.associations %> </p>
-        <p>Favourite Teams: <%= currentUser.favteams %> </p>
-        <p>Stronger Foot: <%= currentUser.strongfoot=="r" ? "Right" : "Left" %> </p>
-        <p>Hometown: <%= currentUser.hometown %> </p>
-        <a href="/profile/self/getdetails">Edit</a>
 </div>
 
 <% include ../partials/footer.ejs %>

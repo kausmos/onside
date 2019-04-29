@@ -45,9 +45,9 @@ body{
 .navbar-brand img{
     position:relative;
     left: 0px;
-    top: -70px;
+    top: -60px;
     bottom: 0px;
-    height:500%;
+    height:400%;
     margin-bottom: 10px;
     
 }
@@ -197,6 +197,7 @@ ul{
 #companionfield{
     width:10px;
 }
+
 
 .maincap{
     background-color:grey;
@@ -441,6 +442,41 @@ input:focus{
     text-align: center;
 }
 
+.detailscap{
+    text-align: center;
+}
+
+.detailscap a{
+    color:#FF947F;
+}
+
+.detailscap a:hover{
+    color:#FFC494;
+}
+
+.detailsform{
+    text-align: center;
+    padding: 10px;
+}
+
+.profilecard{
+    background: #565F75;
+    padding:10px;
+    border-radius:15px;
+    -moz-box-shadow: 0 0px 5px #2D3444;
+    -webkit-box-shadow: 0 0px 5px #2D3444;
+    box-shadow: 0 0px 5px #2D3444;
+    margin:30px;
+}
+
+.profilecard h6{
+    margin:10px 0;
+}
+
+.profilecard span{
+    color: #FFC494;
+}
+
 .chatstreambox{
     border: 2px solid #D0B6D8;
     border-radius: 10px;
@@ -449,6 +485,19 @@ input:focus{
     min-height: 500px;
     max-height:800px;
     height:70vh;
+}
+
+.loginform .teamplayed input[type='text'], .loginform .teamsupport input[type='text'], .loginform .hometown input[type='text']{
+    width: 60%;
+    display: block;
+    margin: 2px auto;
+    text-align: center;
+}
+
+#addplayed , #addsupport {
+    display: inline-block;
+    color: #FFC494;
+    font-size: 26px;
 }
 
 .msgstreamcontainer{
@@ -583,7 +632,7 @@ input:focus{
     top:0px;
     padding: 0px;
     max-width: 500px;
-    margin: 10px auto;
+    margin: 20px auto;
     border-radius:5px;
     
     position: relative;
@@ -597,12 +646,12 @@ input:focus{
 }
 
 .sender-index{
-    background-color:#2F3647;
+    background-color:#5D6B8C;
     margin: 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    color: #fff;
 }
-
 
 .sender-index, .lastmessage-index {
     padding:15px;
@@ -624,10 +673,11 @@ input:focus{
 }
 
 .lastmessage-index{
-    padding:10px;
-    background: #565F75;
+    padding:20px;
+    background: #FFECE8;
     margin-left: auto;
     margin-right:auto;
+    color:#474F66;
 }
 
 .message-left{
