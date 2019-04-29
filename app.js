@@ -6,9 +6,6 @@ const express = require("express");
 const app =express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
-const EventEmitter = require('events');
-class MyEmitter extends EventEmitter {}
-const myEmitter = new MyEmitter();
 const bodyParser= require("body-parser");
 const mongoose= require("mongoose");
 const seedDB=require("./seedDB");
@@ -18,16 +15,14 @@ const User=require("./models/users.js");
 const Message=require("./models/messages.js");
 const Chatstream=require("./models/chatstreams.js");
 const methodOverride=require("method-override");
-const indexRoutes=require("./routes/index")(io,myEmitter);
+const indexRoutes=require("./routes/index")(io);
 const bookingRoutes=require("./routes/bookings");
 const slotRoutes=require("./routes/slots");
 const profileRoutes=require("./routes/profiles");
-const messageRoutes=require("./routes/messages")(io,myEmitter);
+const messageRoutes=require("./routes/messages")(io);
 const passport=require("passport");
 const localStrategy=require("passport-local");
 const flash=require("connect-flash");
-var socketList = require("./socketinfo.js");
-
 //----------------------------------------------------------------------
 
 
@@ -60,7 +55,6 @@ app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
-    
     next();
 });
 
@@ -76,15 +70,6 @@ app.use(function(req,res,next){
 })
 
 
-
-io.sockets.on("connection",function(socket){
-     myEmitter.on('newuser', function(username) {
-        socketList.addSocket(username,socket);
-    });
-    myEmitter.on("chat message",function(data){
-        socketList.getSocket(data.receiver).emit("chat message","d");
-    })
-})
 
 //------------------connecting to mongo server--------------------
 // mongoose.connect("mongodb://localhost/onside",{useNewUrlParser: true});
