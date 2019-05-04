@@ -6,18 +6,19 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/main.css">
         <script src="/jquery.js"></script>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
     </head>
     <body>
       
-        <nav class="navbar navbar-fixed-top navbar-expand-lg ">
-          <div class="navbar-container container">
+        <nav class="navbar fixed-top navbar-expand-lg ">
+          
           <div class="navbar-brand"><img id="onsidelogo" src="https://previews.dropbox.com/p/thumb/AAYqHURJ_0k2Q1sKWXY3FzTNI79uaM0nBttbiqOaSmv2p6Ev3xPA4vSHmuwjfPg9oENGrw3CRNCQhgM3sHDSrDH-caTVVTzl1ToGHvN_fnsWBoxeJgSO3KF2QT99wBWgAy2cT-6ySSQ4A3ZY9cXmZoA8eaTrKiY5yMIzsbulAhhZroEwR6RKQ6djYX7jGuu4i3IDTuYIoa3U-h0BbRp1GAgj6wmAvLox4ZK0cPVMY5X_ilqhI2Cju2vpfonnSBMOCGV1CtbnkVe7qnstitEPYNYOPN8frHxc6oh6YuG38aJ6a5ydpUx66DTi-N05jikfraT406EPweht6y63tl8j1rnG/p.png?size_mode=5"></div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
           </button>
         
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+          <div class="collapse navbar-collapse justify-content-end fill" id="navbarSupportedContent">
+            <ul class="navbar-nav">
               
               
               
@@ -61,13 +62,15 @@
               
             </ul>
             
-          </div>
+          
         </nav>
       </div>
-        <div class="main-container container w-100 h-100 px-3">
+        <div class="main-container container">
         
         <% if(success && success.length>0){ %>
-        <p class="success-message"><%= success %> <p>
+        <div class="successflash car">
+          <p class="success-message"><%= success %> <p>  
+        </div>
         <% } if(error && error.length>0){ %>
         <p class="error-message"> <%= error %> <p>
         <% } %>

@@ -1,16 +1,16 @@
 <% include ../partials/header.ejs %>
 
 
+<div class="text-center">
 
-
-<div class="convocontainer">
-  <h5 class="display-4 text-center">Additional Details</h5>
+<div class="convocontainer d-inline-block">
+  <h5 class="text-center mt-4 ">Additional Details</h5>
   <div class="detailscap">
     <p>Hello <%= currentUser.firstname %>, care to tell us a little about yourself?</p>
     <a href="/slots">[ Proceed to bookings instead ] >></a>    
   </div>
     
-    <div class="detailsform">
+    <div class="detailsform slotwindow text-center">
         <form class="loginform " method="POST" action="/profiles/self/getdetails">
         <div class="form-group">
         <p>Positions:</p>
@@ -52,7 +52,7 @@
         <div class="form-group teamplayed">
             <p>Associations(Teams part of):</p>
             <input type="text" name="associationa" value="">
-            <input type="text" name="associationb" hidden="true">
+            <input type="text" name="associationb" >
             <input type="text" name="associationc" hidden="true">
             <p id="addplayed">+</p>
         </div>
@@ -83,9 +83,7 @@
     </form>
         
     </div>
-
-    
-    
+</div>
 </div>
 
 <% include ../partials/footer.ejs %>

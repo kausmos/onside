@@ -1,5 +1,5 @@
-//Our Main app goes here
-//Onside project starts today alongside learning processes
+//Main app goes here
+
 
 //----------Loading dependencies (Mostly require statements)-------------
 const express = require("express");
@@ -72,8 +72,8 @@ app.use(function(req,res,next){
 
 
 //------------------connecting to mongo server--------------------
-// mongoose.connect("mongodb://localhost/onside",{useNewUrlParser: true});
-mongoose.connect("mongodb://kaustuva:T4X1DR1V3R@ds147566.mlab.com:47566/onside",{useNewUrlParser: true});
+mongoose.connect("mongodb://localhost/onside",{useNewUrlParser: true});
+// mongoose.connect("mongodb://kaustuva:T4X1DR1V3R@ds147566.mlab.com:47566/onside",{useNewUrlParser: true});
 
 
 

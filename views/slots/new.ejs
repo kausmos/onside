@@ -1,13 +1,13 @@
 <% include ../partials/header.ejs %>
-<p class="actionmessage">Please enter timitngs for the new slot for <span><%= day %></span></p>
-<div class="card w-25 newcard">
+<p class="actionmessage">Please enter timings for the new slot for <span><%= day %></span></p>
+<div class="card newcard">
     <form method="POST" action="/slots?day=<%= day %>" class="newslotform">
     
         <div class="card-header">
             <h4> <%= dateObj.toDateString()%> </h6>
         </div>
         <div class="card-body">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush text-center">
             <li class="list-group-item">
                 <h5 class="card-title">Start Time</h5>
                 <input type="time" id="starttime" name="starttime" min="7:00" max="21:00" value="18:30" required onchange=checkTime()>
