@@ -2260,7 +2260,7 @@
 /*--------------------------------------------------------------------------------*/
 
    
-body{
+    body{
     
     background: #524F59;
     background-repeat: no-repeat;
@@ -2275,6 +2275,10 @@ body{
     text-transform: uppercase;
     min-height:100%;
     overflow-y: hidden;
+    }
+    
+    html{
+        overflow-y: hidden;
     }
     
 a:hover {

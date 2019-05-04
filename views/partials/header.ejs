@@ -68,11 +68,13 @@
         <div class="main-container container">
         
         <% if(success && success.length>0){ %>
-        <div class="successflash car">
+        <div class="successflash card">
           <p class="success-message"><%= success %> <p>  
         </div>
         <% } if(error && error.length>0){ %>
+        <div class="errorflash card">
         <p class="error-message"> <%= error %> <p>
+        </div>
         <% } %>
         
     
