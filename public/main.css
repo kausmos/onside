@@ -10,13 +10,56 @@
     
     background: #474F66;
     font-family: 'Varela Round', sans-serif;
-    height:100vh;
+    height:100%;
     width:100vw;
     padding: 0px;
     margin:0px;
     color: #D3DBED;
     text-transform: uppercase;
     overflow-y: hidden;
+    overscroll-behavior: auto;
+    }
+    
+    html{
+        height:100%;
+        overscroll-behavior: auto;
+    }
+    
+    .successflash, .errorflash{
+      background:white;
+      width: 60vw;
+      height: 50vh;
+      margin-bottom: 10px;
+      display: block;
+      position:fixed;
+      top:30vw;
+      left:20vw;
+      border-radius:5px;
+      z-index:1000;
+    }
+    
+    .errorflash{
+        background:#624F66;
+    }
+    .successflash{
+        background:#476E66;
+    }
+    
+    .closeflash{
+      position:relative;
+      right: 10px;  
+    }
+    .closeflash a{
+        Font-size: 20px;
+    }
+    
+    .success-message{
+      margin-top: 40%;
+      color:#D3DBED;  
+    }
+    .error-message{
+        margin-top: 40%;
+        color:#D3DBED;
     }
     
     .navbar-toggler-icon i{
@@ -77,6 +120,7 @@
     
     .footer{
         position:fixed;
+        margin-top:auto;
         bottom:0px;
         background:rgba(129,75,102,0.8);
         opacity:50%;
@@ -91,9 +135,10 @@
     }
     
     #onsidelogo{
-        height:70px;
-        top: -10px;
+        height:35px;
+        top: 5px;
         position: fixed;
+        ;
     }
     
     input{
@@ -558,7 +603,8 @@
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         position:sticky;
-        bottom:0;
+        bottom:10;
+        background:black;
         
     }
     
@@ -971,6 +1017,7 @@
     
     .newslotform{
         text-align:center;
+        max-width:300px;
     }
     
     .actionbutton button:hover{
@@ -1148,8 +1195,9 @@
         text-align: right;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
-        position:sticky;
-        bottom:0;
+        position:absolute;
+        bottom:10px;
+        bakground:grey;
         
     }
     
@@ -1208,6 +1256,7 @@
     
     .footer{
         position:fixed;
+        margin-top:auto;
         bottom:0px;
         background:rgbargba(129,75,102,0.8);
     }
@@ -1481,6 +1530,43 @@
         height:100px;
         top: -25px;
         position: fixed;
+    }
+    
+    .successflash, .errorflash{
+      background:white;
+      width: 60vw;
+      height: 400px;
+      margin-bottom: 10px;
+      display: block;
+      position:fixed;
+      top:20%;
+      left:20vw;
+      border-radius:5px;
+      z-index:1000;
+    }
+    
+    .errorflash{
+        background:#624F66;
+    }
+    .successflash{
+        background:#476E66;
+    }
+    
+    .closeflash{
+      position:relative;
+      right: 10px;  
+    }
+    .closeflash a{
+        Font-size: 20px;
+    }
+    
+    .success-message{
+      margin-top: 20%;
+      color:#D3DBED;  
+    }
+    .error-message{
+        margin-top: 20%;
+        color:#D3DBED;
     }
     
     
@@ -1772,6 +1858,11 @@
     
     .newslotform{
         text-align:center;
+        max-width:300px;
+    }
+    
+    .newcard{
+        max-width:300px;
     }
     
     .actionbutton button:hover{
@@ -1862,19 +1953,7 @@
         color:#FFC494;
     }
     
-    .success-message{
-        color: #6DF7D6;
-        border-top: 1px solid #6DF7D6;
-        border-bottom: 1px solid #6DF7D6;
-        text-align: center;
-    }
-    .error-message{
-        
-        color:#AA1F47;
-        border-top: 1px solid #AA1F47;
-        border-bottom: 1px solid #AA1F47;
-        text-align: center;
-    }
+   
     
     .detailscap{
         text-align: center;
@@ -1916,9 +1995,9 @@
         border-radius: 10px;
         padding: 8px 15px;
         height: 80%;
-        min-height: 500px;
+        min-height: 100%;
         max-height:800px;
-        height:70vh;
+        height:60vh;
     }
     
     .loginform .teamplayed input[type='text'], .loginform .teamsupport input[type='text'], .loginform .hometown input[type='text']{
@@ -2009,12 +2088,14 @@
     
     .footer{
         position:fixed;
+        margin-top:auto;
         bottom:0px;
         background:rgba(129,75,102,0.8);
     }
     
     .footer-container {
-        position:relative;
+        position:absolute;
+        bottom:0px;
     }
     
     .chatuser{
@@ -2275,10 +2356,15 @@
     text-transform: uppercase;
     min-height:100%;
     overflow-y: hidden;
+    
     }
     
     html{
         overflow-y: hidden;
+    }
+    
+    html,body{
+        height:100%;
     }
     
 a:hover {

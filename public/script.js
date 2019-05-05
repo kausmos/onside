@@ -1,3 +1,12 @@
+
+
+//script for dismissing flash messages
+
+$(".closeflash").on("click",function(){
+  $(this).parent().css("display","none");
+})
+
+
 var socket = io();
 
 socket.on('newmessage', function(msg){
@@ -66,4 +75,6 @@ function showSlots(that){
 
 //script for scrolling to the bottom of messages in chat stream
 $(".msgstreamcontainer").scrollTop($(".msgstreamcontainer")[0].scrollHeight);
+
+
 

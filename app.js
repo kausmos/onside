@@ -74,9 +74,6 @@ app.use(function(req,res,next){
 //------------------connecting to mongo server--------------------
 mongoose.connect(process.env.DBURL,{useNewUrlParser: true});
 
-
-
-
 http.listen(process.env.PORT, process.env.IP, function(req,res){
   console.log('listening on'+process.env.PORT);
 });
