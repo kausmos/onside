@@ -5,18 +5,18 @@
 <div class="slotwindow">
     
 <!-----------ongoing games ------------>
-<div id="slotsongoing" class="d-flex justify-content-center flex-wrap slotsection">
+<div id="slotsongoing" class="d-flex slotsection flex-column flex-md-row align-items-center">
 <% if (ongoingslots.length==1){ %>
 
 <div class="card p-0 mx-2 my-1">
-                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                    <a href="/slots/<%=slot._id%>" class="h-100">
                         <div class="card-header"  >
                             <h6><%= ongoingslots[0].start.getHours()%>:<%=ongoingslots[0].start.getMinutes()<10?'0':''%><%= ongoingslots[0].start.getMinutes()%>-<%= ongoingslots[0].end.getHours()%>:<%=ongoingslots[0].end.getMinutes()<10?'0':''%><%= ongoingslots[0].end.getMinutes()%></h6>
                             <h6><%= ongoingslots[0].start.toDateString() %></h6>
                         </div>
                         
                         <% if(ongoingslots[0].start>new Date()){%>
-                        <p class="<%=slotbg%>">VACANCIES: <%=ongoingslots[0].vacancies%></p>
+                        <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
                         <% } else if(ongoingslots[0].start < new Date() && ongoingslots[0].end> new Date()){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
@@ -44,7 +44,7 @@
 <% }%>
 </div>
 <!-----------slots upcoming ------------>
-<div id="slotsupcoming" class="d-none justify-content-center flex-wrap slotsection">
+<div id="slotsupcoming" class="d-none slotsection flex-column flex-md-row align-items-center">
     
     <% if(upcomingslots.length>0){
         upcomingslots.forEach(function(slot){
@@ -61,15 +61,15 @@
             console.log("slotstoday ejs:"+slot);
             %>
             
-                <div class="card p-0 mx-2 my-1  <%=slotbg%>">
-                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                <div class="card p-0 mx-2 my-1">
+                    <a href="/slots/<%=slot._id%>" class="h-100">
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>
                         </div>
                         
                         <% if(slot.start>new Date()){%>
-                        <p class="<%=slotbg%>">VACANCIES: <%=slot.vacancies%></p>
+                        <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
                         <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
@@ -101,7 +101,7 @@
 
 <!-----------slots past ------------>
 
-<div id="slotspast" class="d-none justify-content-center flex-wrap slotsection">
+<div id="slotspast" class="d-none slotsection flex-column flex-md-row align-items-center">
     
     <% if(pastslots.length>0){
         pastslots.forEach(function(slot){
@@ -109,8 +109,8 @@
             
             %>
             
-                <div class="card p-0 mx-2 my-1  <%=slotbg%>">
-                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                <div class="card p-0 mx-2 my-1">
+                    <a href="/slots/<%=slot._id%>" class="h-100">
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>
