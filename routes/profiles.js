@@ -31,27 +31,15 @@ router.get("/profiles/self/mybookings",middlewareObj.isLoggedIn,function(req,res
              
          });
           console.log("myslots"+myslots);
-         
-            // var dateToday=new Date();
-            // var datedayafter=new Date();
-            // datedayafter.setDate(dateToday.getDate()+2);
-            // var daysoftheweek =["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-            // var dayafter=daysoftheweek[datedayafter.getDay()];//this needs to be passed on
-            // var monthsofyear = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
             
-            // var myslots=slotlist.filter(function(slotelem){
-            //     slotelem.bookings.forEach(function(booking){
-            //         if (booking.username==res.locals.currentUser){
-            //             return true;
-            //         }
-            //     });
-            // });//this needs to be passed on
             
             
             //divide myslots to past and upcoming bookings
             var pastslots=myslots.filter(function isPastSlot(slot){
                 
                 let now = new Date();
+                now.setHours((now.getUTCHours())+5);
+                now.setMinutes((now.getUTCMinutes())+30);
                 return(slot.end<now);
                 
                 
@@ -60,6 +48,8 @@ router.get("/profiles/self/mybookings",middlewareObj.isLoggedIn,function(req,res
             var upcomingslots=myslots.filter(function isUpcomingSlot(slot){
                 
                 let now = new Date();
+                now.setHours((now.getUTCHours())+5);
+                now.setMinutes((now.getUTCMinutes())+30);
                 return(slot.start>now);
                 
             }); //passed on to ejs
@@ -67,6 +57,8 @@ router.get("/profiles/self/mybookings",middlewareObj.isLoggedIn,function(req,res
             var ongoingslots=myslots.filter(function isOngoingSlot(slot){
                 
                 let now = new Date();
+                now.setHours((now.getUTCHours())+5);
+                now.setMinutes((now.getUTCMinutes())+30);
                 return((slot.start<now)&&(slot.end>now));
                 
             }); //passed on to ejs

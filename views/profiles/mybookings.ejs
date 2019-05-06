@@ -1,5 +1,9 @@
 <% include ../partials/header.ejs %>
-
+<% 
+    var now = new Date();
+    now.setHours((now.getUTCHours())+5);
+    now.setMinutes((now.getUTCMinutes())+30);
+%>
 <div class="daynav"><a href="#" class="dayselect">Ongoing</a><a href="#">Upcoming</a><a href="#">Past</a></div>
 
 <div class="slotwindow">
@@ -9,20 +13,20 @@
 <% if (ongoingslots.length==1){ %>
 
 <div class="card p-0 mx-2 my-1">
-                    <a href="/slots/<%=slot._id%>" class="h-100">
+                    <a href="/slots/<%=ongoingslots[0]._id%>" class="h-100">
                         <div class="card-header"  >
                             <h6><%= ongoingslots[0].start.getHours()%>:<%=ongoingslots[0].start.getMinutes()<10?'0':''%><%= ongoingslots[0].start.getMinutes()%>-<%= ongoingslots[0].end.getHours()%>:<%=ongoingslots[0].end.getMinutes()<10?'0':''%><%= ongoingslots[0].end.getMinutes()%></h6>
                             <h6><%= ongoingslots[0].start.toDateString() %></h6>
-                        </div>
                         
-                        <% if(ongoingslots[0].start>new Date()){%>
+                        
+                        <% if(ongoingslots[0].start>now){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
-                        <% } else if(ongoingslots[0].start < new Date() && ongoingslots[0].end> new Date()){ %>
+                        <% } else if(ongoingslots[0].start < now && ongoingslots[0].end> now){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
-                        
+                        </div>
                         <ul class="list-group list-group-flush">
-                            <%slot.bookings.forEach(function(booking){
+                            <%ongoingslots[0].bookings.forEach(function(booking){
                                 if(booking.companions==0){
                                 %>
                                     <li><i class="fas fa-user"></i><%=booking.firstname%></li>
@@ -66,14 +70,14 @@
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>
-                        </div>
                         
-                        <% if(slot.start>new Date()){%>
+                        
+                        <% if(slot.start> now){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
-                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <% } else if(slot.start < now && slot.end> now ){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
-                        
+                        </div>
                         <ul class="list-group list-group-flush">
                             <% slot.bookings.forEach(function(booking){
                                 if(booking.companions==0){

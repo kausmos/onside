@@ -2452,6 +2452,11 @@ a:hover {
     padding-right:3px;
 }
 
+.slotalert{
+    background:#EBB1AB;
+    padding:5px;
+    color:black;
+}
 
     
 /*scrollbar styling for chrome*/

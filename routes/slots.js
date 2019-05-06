@@ -11,9 +11,15 @@ router.get("/slots",middlewareObj.isLoggedIn,function(req,res){
     Slot.find({}).sort({start:-1}).populate("bookings").exec(function(err,slotlist){
         if(!err){
             var dateToday=new Date();
+            dateToday.setHours((dateToday.getUTCHours())+5);
+            dateToday.setMinutes((dateToday.getUTCMinutes())+30);
             var dateTomorrow=new Date();
+            dateTomorrow.setHours((dateTomorrow.getUTCHours())+5);
+            dateTomorrow.setMinutes((dateTomorrow.getUTCMinutes())+30);
             dateTomorrow.setDate(dateTomorrow.getDate()+1)
             var dateDayAfter=new Date();
+            dateDayAfter.setHours((dateDayAfter.getUTCHours())+5);
+            dateDayAfter.setMinutes((dateDayAfter.getUTCMinutes())+30);
             dateDayAfter.setDate(dateDayAfter.getDate()+2);
             
             //find all slots booked for current year
@@ -38,7 +44,7 @@ router.get("/slots",middlewareObj.isLoggedIn,function(req,res){
             
             res.render("slots/index.ejs",{slotscurrentyear:slotscurrentyear,slotstoday:slotstoday,
                                             slotstomorrow:slotstomorrow, slotsdayafter:slotsdayafter,
-                                            route:"slots"});
+                                            route:"slots", today:dateToday});
         }
         
         else if(err){
@@ -56,7 +62,13 @@ router.post("/slots",middlewareObj.isLoggedIn, function(req,res){
     //create new date objexts to store slot timings
     var day=req.query.day;
     var slotstart=new Date();
+    slotstart.setHours((slotstart.getUTCHours())+5);
+    slotstart.setMinutes((slotstart.getUTCMinutes())+30);
+    
     var slotend=new Date();
+    slotend.setHours((slotstart.getUTCHours())+5);
+    slotend.setMinutes((slotstart.getUTCMinutes())+30);
+    
     slotstart.setHours(req.body.starttime.slice(0,2));
     slotstart.setMinutes(req.body.starttime.slice(3));
     slotend.setHours(req.body.endtime.slice(0,2));
@@ -270,6 +282,8 @@ router.get("/slots/new",middlewareObj.isLoggedIn,function(req,res){
     
     else{
         var date= new Date();
+        date.setHours((date.getUTCHours())+5);
+        date.setMinutes((date.getUTCMinutes())+30);
         var day="Today";
         if(req.query.day=="tomorrow"){
             date.setDate(date.getDate()+1);
@@ -322,9 +336,12 @@ router.delete("/slots/:id",middlewareObj.isLoggedIn,function(req,res){
     
         Slot.findById(req.params.id,function(err, slot) {
         if(!err){
+            var now = new Date();
+            now.setHours((now.getUTCHours())+5);
+            now.setMinutes((now.getUTCMinutes())+30);
             
             //Check if slot dead(in the past). Do not delete dead slots
-            if ((slot.start> new Date() && req.user.username=="admin")||(slot.vacancies>9)){
+            if ((slot.start> now && req.user.username=="admin")||(slot.vacancies>9)){
                 Slot.deleteOne(slot,function(err){
                     if(!err){
                         req.flash("success", "Slot Deleted Succesfully");
@@ -332,7 +349,7 @@ router.delete("/slots/:id",middlewareObj.isLoggedIn,function(req,res){
                     }
                 });
             }
-            else if(slot.start< new Date()){
+            else if(slot.start< now){
                 req.flash("error", "The slot is in the past");
                 res.redirect("/slots/"+req.params.id);
             }

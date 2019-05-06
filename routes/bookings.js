@@ -22,6 +22,9 @@ router.get("/slots/:id/bookings/new",middlewareObj.isLoggedIn,function(req,res){
 
 router.post("/slots/:id/bookings",middlewareObj.isLoggedIn,middlewareObj.notAlreadyBooked,function(req,res){
    console.log("Inside booking post route");
+   var now = new Date();
+    now.setHours((now.getUTCHours())+5);
+    now.setMinutes((now.getUTCMinutes())+30);
    var slotID=req.params.id;
    var comp=req.body.companions;
    console.log("companions:"+comp+" type:"+typeof(comp));
@@ -39,7 +42,7 @@ router.post("/slots/:id/bookings",middlewareObj.isLoggedIn,middlewareObj.notAlre
            Slot.findById(slotID,function(err,slot){
             //check that the slot is not dead(in the past)
             
-            if(slot.start>new Date()){
+            if(slot.start>now){
                
                if(!err && slot.vacancies>(bookingObj.companions)){
                     slot.bookings.push(booking);
@@ -88,13 +91,17 @@ router.post("/slots/:id/bookings",middlewareObj.isLoggedIn,middlewareObj.notAlre
 router.delete("/slots/:id/bookings/:bid",middlewareObj.isLoggedIn,function(req,res){
     var slotid=req.params.id;
     var bid=req.params.bid;
+    var now = new Date();
+    now.setHours((now.getUTCHours())+5);
+    now.setMinutes((now.getUTCMinutes())+30);
+    
     Slot.findById(slotid,function(err,slot){
         if(!err){
             Booking.findById(bid,function(err,booking){
                 if(!err){
                     //Check if the booking is done by current user
                     //Check whether the slot is yet to be dead(in the past)
-                    if((booking.username==res.locals.currentUser.username)&&(slot.start>new Date())){
+                    if((booking.username==res.locals.currentUser.username)&&(slot.start>now)){
                         slot.bookings.forEach(function(item,index){
                          if(item._id.equals(booking._id)){
                             slot.bookings.splice(index,1);

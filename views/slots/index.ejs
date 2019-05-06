@@ -2,11 +2,15 @@
 <% include ../partials/header.ejs %>
 
 <% 
-    var dayaftertomorrow= new Date();
+    var now = new Date();
+    now.setHours((now.getUTCHours())+5);
+    now.setMinutes((now.getUTCMinutes())+30);
+    var dayaftertomorrow= now;
     dayaftertomorrow.setDate(dayaftertomorrow.getDate()+2);
     var dayaftertomorrow = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][dayaftertomorrow.getDay()]
     
 %>
+
 <div class="daynav"><a href="#" class="dayselect">Today</a><a href="#">Tomorrow</a><a href="#"><%= dayaftertomorrow%></a><a href="#">All Slots</a></div>
 <div class="slotwindow">
 <!-----------slots today -->
@@ -40,9 +44,9 @@
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
                         
-                        <% if(slot.start>new Date()){%>
+                        <% if(slot.start>now){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
-                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <% } else if(slot.start<today && slot.end>today){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
                         </div>
@@ -81,7 +85,7 @@
     <div class="card newslotcard">
         <a href="/slots/new?day=tomorrow" class="h-100">
             <div class="plus-icon">
-                <h1>+</h1>   
+                <h1>+</h1>
            </div>
         </a>
     </div>
@@ -104,9 +108,9 @@
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
-                        <% if(slot.start>new Date()){%>
+                        <% if(slot.start>now){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
-                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <% } else if(slot.start < now && slot.end> now){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
                         </div>
@@ -166,9 +170,9 @@
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>
-                        <% if(slot.start>new Date()){%>
+                        <% if(slot.start>now){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
-                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <% } else if(slot.start < now && slot.end> now){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
                         </div>
@@ -226,9 +230,9 @@
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
                         
-                        <% if(slot.start>new Date()){%>
+                        <% if(slot.start> now){%>
                         <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
-                        <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                        <% } else if(slot.start < now && slot.end> now){ %>
                         <p class="slotalert">ONGOING!!</p>
                         <% } %>
                         </div>
