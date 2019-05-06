@@ -3,7 +3,7 @@ const User=require("./users.js");
 const Message=require("./messages.js");
 
 var chatstreamSchema = new mongoose.Schema({ 
-   
+   unread: Number,
    sender: {
        type: mongoose.Schema.Types.ObjectId,
        ref: "User"
@@ -17,8 +17,8 @@ var chatstreamSchema = new mongoose.Schema({
     messageList :[{
        type: mongoose.Schema.Types.ObjectId,
        ref: "Message"
-   }],
-   unread: Number
+   }]
+   
 });
 
 var Chatstream = mongoose.model("Chatstream",chatstreamSchema);

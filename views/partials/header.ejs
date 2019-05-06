@@ -40,9 +40,17 @@
               <li class="nav-item">
                 
               </li>
+              <% if(!currentUser.messages){
+              var messagenot=0; %>
               <li class="nav-item">
-                <a class="nav-link <%= (route!=undefined && route=="messages")?"navactive":""%>" href="/messages">Messages</a>
+                <a class="nav-link <%= (route!=undefined && route=="messages")?"navactive":""%>" href="/messages">Messages<% if (messagenot>0) { %> <span class="slotred"><span class="slotred"><%=messagenot%></span> <% } %></a>
               </li>
+              <% } else{
+              var messagenot=currentUser.messages.unread;%>
+              <li class="nav-item">
+                <a class="nav-link <%= (route!=undefined && route=="messages")?"navactive":""%>" href="/messages">Messages<% if (messagenot>0) {%><span class="slotred"><%=messagenot%></span><% } %></a>
+              </li>
+              <% } %>
               <li class="nav-item">
                 <a class="nav-link logoutlink" href="/logout" class="<%= (route!=undefined && route=="profile")?"navactive":""%>">Log out</a>
               </li>

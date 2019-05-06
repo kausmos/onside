@@ -11,7 +11,13 @@ var userSchema= new mongoose.Schema({
     favteams:[String],
     strongfoot: String,
     hometown: String,
-    socket:String
+    socket:String,
+    messages:{
+        unread: {
+            type:Number,
+            min:0
+        }
+    }
     
 });
 

@@ -18,10 +18,10 @@
                 }    
                 %>
                 <div class="sender-index">
-                    <h6> <%= sender %></h6>    
+                    <h6> <%= sender %><% if (chatstream.unread>0){ %><span class="slotred"><%= chatstream.unread %></span><% } %></h6>    
                 </div>
                 <div class="lastmessage-index">
-                    <p> <%= chatstream.messageList.slice(-1)[0].content %></p>
+                    <p> <%= chatstream.messageList.slice(-1)[0]?chatstream.messageList.slice(-1)[0].content:"" %></p>
                 </div>
             </div>    
         </a>

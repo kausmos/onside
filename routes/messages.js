@@ -125,7 +125,25 @@ router.post("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
                    if(!err){
                        console.log("Chatstream created"+stream);
                        stream.messageList.push(message);
+                       stream.markModified("messageList");
+                       stream.save()
+                       stream.unread= stream.unread?stream.unread+1:1;
+                       stream.markModified("unread")
                        stream.save();
+                       User.findById(req.params.id,function(err, user) {
+                            if(!err){
+                                if(user.messages){
+                                    user.messages.unread=user.messages.unread+1;
+                                    user.save();
+                                }
+                                else{
+                                    user.messages={unread:1};
+                                    user.save();
+                                }
+                               
+                                
+                            } 
+                       })
                        console.log("Message pushed into chatstream and saved"+stream);
                        //redirect to show chatstream
                        res.redirect("/messages/"+stream._id);
@@ -141,13 +159,15 @@ router.post("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
 //messages put route
 router.put("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
     console.log("Inside PUT route");
+    
     //create message template to be pushed to DB from form data
     var newMessage = {
         content: req.body.content,
         sender:{firstname: res.locals.currentUser.firstname},
-        recipient:{firstname: req.params.id}
+        recipient:{userid: req.params.id}
     };
     console.log("New message template:"+ newMessage);
+    
     //create message in DB using the created template
     Message.create(newMessage,function(err, message){
         if(!err){
@@ -165,21 +185,33 @@ router.put("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
                    
                    if(message.content.trim().length>0){
                         streama[0].messageList.push(message);
+                        streama[0].markModified("messageList");
                         streama[0].save();
-                   //we are using socket here to utilize webSockets to show our messages in realtime
+                        streama[0].unread= streama[0].unread?streama[0].unread+1:1;
+                        streama[0].markModified("unread");
+                        streama[0].save();
+                   //update the user unread message paramter
+                   //use sockets
                         User.findById(req.params.id,function(err,user){
                             if(!err){
+                                if(user.messages){
+                                    user.messages.unread=user.messages.unread+1;
+                                    user.save();    
+                                }
+                                else{
+                                    console.log("Attempting to create a user.messages");
+                                    user.messages={unread:1};
+                                    user.save();
+                                    console.log("After supposed creation, user.messages is"+user.messages);
+                                }
                                 console.log("pushing to"+user.socketid);
                                 io.on('connection', function(socket){
                                   socket.on('newmessage',function(msg){
                                       io.to(user.socketid).emit('newmessage', message);
                                   })
                                 });
-                                
                             }
                         });
-                        
-                       
                    }
                    
                    //redirect to show chatstream
@@ -194,10 +226,25 @@ router.put("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
                            
                         if(message.content.trim().length>0){
                             streamb[0].messageList.push(message);
+                            streamb[0].markModified("messageList");
                             streamb[0].save();
-                        //we are using socket here to utilize webSockets to show our messages in realtime
+                            streamb[0].unread=streamb[0].unread ? streamb[0].unread+1 : 1;
+                            streamb[0].markModified("unread");
+                            streamb[0].save();
+                        //update user unread parameter after pushing new message
                         User.findById(req.params.id,function(err,user){
                             if(!err){
+                                if(user.messages){
+                                    user.messages.unread=user.messages.unread+1;
+                                    user.save();    
+                                }
+                                else{
+                                    console.log("Attempting to create a user.messages");
+                                    user.messages={unread:1};
+                                    user.save();
+                                    console.log("After supposed creation, user.messages is"+user.messages);
+                                }
+                                
                                 console.log("pushing to"+user.socketid);
                                 io.on('connection', function(socket){
                                   socket.on('newmessage',function(msg){
@@ -214,11 +261,9 @@ router.put("/messages/:id",middlewareObj.isLoggedIn,function(req,res){
                     }
                     });
                }
-                
            }); 
         }
     });
-    
 });
 
 
@@ -234,27 +279,59 @@ router.get("/messages/:streamid",middlewareObj.isLoggedIn,function(req,res){
     .exec(function(err,stream){
        if(!err){
         
-        var userid1=stream.sender._id;
-        var userid2=stream.recipient._id;
-        console.log("--------------------------");
-        console.log("equality checks");
-        console.log("typeof stream.sender._id:"+typeof(stream.sender._id));
+        //when chatstream found, make currentuser unread message count to 0
+        User.findById(res.locals.currentUser._id, function(err, user) {
+            if(!err){
+                
+                  //collect details for the other participant to be displayed
+                            function getOtherUser(){
+                                var seconduser={};
+                                if(stream.sender._id.toString()==res.locals.currentUser._id.toString()){
+                                    seconduser._id=stream.recipient._id;
+                                    seconduser.firstname=stream.recipient.firstname;
+                                }
+                                else{
+                                    seconduser._id=stream.sender._id;
+                                    seconduser.firstname=stream.sender.firstname;
+                                }
+                                
+                                console.log("User object"+seconduser);
+                                res.render("messages/show",{chatstream:stream, user:seconduser, suffix:"?_method=PUT",route:"messages"});
+                            }
+                
+                if(!(stream.messageList.slice(-1)[0].sender.userid.equals(res.locals.currentUser._id))){
+                    
+                    console.log("non sender checks");
+                    if(user.messages){
+                    user.messages.unread = user.messages.unread - stream.unread;
+                    user.markModified("messages.unread");
+                    user.save(function(err,user){
+                        if(!err){
+                            res.locals.currentUser.messages.unread=user.messages.unread;
+                             stream.unread=0;
+                            stream.save();
+                            getOtherUser();
+                        }
+                    });    
+                    }
+                   
+                }
+                
+                else{
+                    console.log("sender checks");
+                    getOtherUser();
+                }
+                
+                
+               
+                
+                
+                
+                
+            }
+        });
         
-        console.log("typeof res.locals.currentUser._id:"+typeof(res.locals.currentUser._id));
-        console.log("req.params.id:"+req.params.id);
-        console.log("--------------------------");
-        var user={};
-        if(stream.sender._id.toString()==res.locals.currentUser._id.toString()){
-            user._id=stream.recipient._id;
-            user.firstname=stream.recipient.firstname;
-        }
-        else{
-            user._id=stream.sender._id;
-            user.firstname=stream.sender.firstname;
-        }
-        
-        console.log("User object"+user);
-        res.render("messages/show",{chatstream:stream, user:user, suffix:"?_method=PUT",route:"messages"});       
+               
        } 
     });
     

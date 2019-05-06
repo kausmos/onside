@@ -50,7 +50,7 @@ var returnRouter = function(io){
         var lastname = req.body.lastname;
         var password=req.body.password;
         
-        User.register(new User({username:username,firstname:firstname,lastname:lastname}),password,function(err,user){
+        User.register(new User({username:username,firstname:firstname,lastname:lastname,messages:{unread:0}}),password,function(err,user){
            if(!err){
                passport.authenticate("local")(req,res,function(){
                     req.flash("success","Welcome, "+firstname+". you have been registered");

@@ -25,6 +25,11 @@
         overscroll-behavior: auto;
     }
     
+    li{
+        list-style: none;
+    }
+    
+    
     .successflash, .errorflash{
       background:white;
       width: 60vw;
@@ -116,6 +121,21 @@
         max-width: 100vw;
         padding:0px;
         margin-top:50px;
+    }
+     .trashbooking{
+        display:inline-block;
+        background: none;
+        border: none;
+        color: #C1A1C9;
+    }
+    
+    .trashbooking:hover{
+        
+        color: #D33361;
+    }
+    .trashbooknig:active{
+        color:#C1A1C9;
+        border:none;
     }
     
     .footer{
@@ -300,11 +320,11 @@
     
     /*CARD STYLING FOR PHONE*/
     .card{
-        background-color: #2F3647;;
+        background-color: #565F75;;
         border: none;
         border-radius:20px;
         color: #97A1B7;
-        height: 340px;
+        min-height: 300px;
         width:250px;
         display:inline-block;
         overflow-y: hidden;
@@ -337,9 +357,8 @@
     .card a {
         color: #D3DBED;
         font-size: 13px;
-        padding: 10px;
-        
     }
+    
     .card a:hover {
         color: #FFC494;
         transition: color 0.3s ease-in;
@@ -722,9 +741,9 @@
         width: 136px;
         height: 45px;
     }
-    #onsidelogo{
-        height:100px;
-        top: -25px;
+     #onsidelogo{
+        height:40px;
+        top: 5px;
         position: fixed;
     }
     
@@ -826,7 +845,7 @@
     }
     
     .card{
-        background-color: #2F3647;;
+        background-color: #565F75;;
         border: none;
         border-radius:20px;
         color: #97A1B7;
@@ -1527,8 +1546,8 @@
         height: 45px;
     }
     #onsidelogo{
-        height:100px;
-        top: -25px;
+        height:40px;
+        top: 5px;
         position: fixed;
     }
     
@@ -1667,13 +1686,13 @@
     }
     
     .card{
-        background-color: #2F3647;;
+        background-color: #565F75;;
         border: none;
         border-radius:20px;
         color: #97A1B7;
         min-height: 324px;
         min-width:275px;
-        max-height:300px;
+        
         display:inline-block;
         overflow-y: hidden;
         -moz-box-shadow: 0 0 30px #3B4256;
@@ -1684,7 +1703,7 @@
     .card-body {
         background-color: #565F75;
         position: relative;
-        height: 500px;
+        min-height: 100%;
         overflow-y: hidden;
         color: #D3DBED;
     }
@@ -1706,7 +1725,7 @@
     .card a {
         color: #D3DBED;
         font-size: 13px;
-        padding: 10px;
+        
         
     }
     .card a:hover {
@@ -2434,7 +2453,7 @@ a:hover {
     padding-left: 3px;
     padding-right:3px;
 }
-    
+
 
     
 /*scrollbar styling for chrome*/

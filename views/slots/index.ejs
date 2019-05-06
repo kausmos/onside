@@ -35,7 +35,7 @@
             %>
             
                 <div class="card p-0 mx-2 my-1">
-                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                    <a href="/slots/<%=slot._id%>" class="h-100">
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
@@ -79,7 +79,7 @@
 <div class="d-none slotsection flex-column flex-md-row align-items-center" id="slotstomorrow">
     
     <div class="card newslotcard">
-        <a href="/slots/new?day=tomorrow" class="h-100 p-3">
+        <a href="/slots/new?day=tomorrow" class="h-100">
             <div class="plus-icon">
                 <h1>+</h1>   
            </div>
@@ -100,7 +100,7 @@
             %>
             
                 <div class="card p-0 mx-2 my-1">
-                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                    <a href="/slots/<%=slot._id%>" class="h-100">
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
@@ -141,7 +141,7 @@
 <div class="d-none slotsection flex-column flex-md-row align-items-center" id="slotsdayafter">
     
     <div class="card newslotcard">
-        <a href="/slots/new?day=dayafter" class="h-100 p-3">
+        <a href="/slots/new?day=dayafter" class="h-100">
             <div class="plus-icon">
                 <h1>+</h1>   
            </div>
@@ -162,7 +162,7 @@
             %>
             
                 <div class="card p-0 mx-2 my-1">
-                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                    <a href="/slots/<%=slot._id%>" class="h-100">
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>
@@ -221,7 +221,7 @@
             %>
             
                 <div class="card p-0 mx-2 my-1">
-                    <a href="/slots/<%=slot._id%>" class="h-100 p-2 ">
+                    <a href="/slots/<%=slot._id%>" class="h-100">
                         <div class="card-header"  >
                             <h6><%= slot.start.getHours()%>:<%=slot.start.getMinutes()<10?'0':''%><%= slot.start.getMinutes()%>-<%= slot.end.getHours()%>:<%=slot.end.getMinutes()<10?'0':''%><%= slot.end.getMinutes()%></h6>
                             <h6><%= slot.start.toDateString() %></h6>    
