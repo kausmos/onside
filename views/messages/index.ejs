@@ -18,7 +18,8 @@
                 }    
                 %>
                 <div class="sender-index">
-                    <h6> <%= sender %><% if (chatstream.unread>0){ %><span class="slotred"><%= chatstream.unread %></span><% } %></h6>    
+                    <h6> <%= sender %><% if (chatstream.unread>0 && !(chatstream.messageList.slice(-1)[0].sender.userid.equals(currentUser._id))){ 
+                                    %><span class="slotred"><%= chatstream.unread %></span><% } %></h6>    
                 </div>
                 <div class="lastmessage-index">
                     <p> <%= chatstream.messageList.slice(-1)[0]?chatstream.messageList.slice(-1)[0].content:"" %></p>
