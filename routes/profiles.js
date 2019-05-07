@@ -87,10 +87,26 @@ router.post("/profiles/self/getdetails",middlewareObj.isLoggedIn,function(req,re
     positions.push(req.body.positiona);
     positions.push(req.body.positionb);
     positions.push(req.body.positionc);
+    positions= positions.filter(function(position){
+        return position;
+    })
     
-    var associations=req.body.associations.split(",");
+    var associations=[];
+    associations.push(req.body.associationa);
+    associations.push(req.body.associationb);
+    associations.push(req.body.associationc);
+    associations=associations.filter(function(association){
+        return association;
+    })
+    var favteams=[];
     
-    var favteams=req.body.favteams.split(",");
+    favteams.push(req.body.favteama);
+    favteams.push(req.body.favteamb);
+    favteams.push(req.body.favteamc);
+    favteams=favteams.filter(function(favteam){
+        return favteam;
+    })
+    
     
     var strongfoot=req.body.strongfoot;
     

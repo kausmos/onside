@@ -1,11 +1,11 @@
 <% include ../partials/header.ejs %>
 
-<div class="convocontainer">
+<div class="convocontainer d-inline-block">
     
     
-    <h5 class="display-4 text-center">Start a conversation</h5>
-    <div class="detailsform">
-        <form action="/messages/<%= user._id + suffix %>" method="POST" class="loginform">
+    <h5 class="mt-4 text-center">Start a conversation</h5>
+    <div class="detailsform text-center">
+        <form action="/messages/<%= user._id + suffix %>" method="POST" class="loginform mx-auto">
             <input type ="text" placeholder="message for <%=user.firstname%>" required name="content">
             <div class="actionbutton mt-6">
                 <button type="submit">Send</button>    
