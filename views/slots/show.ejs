@@ -1,7 +1,17 @@
 <% include ../partials/header.ejs %>
+
+    <% 
+    var now = new Date();
+    now.setHours((now.getUTCHours())+5);
+    now.setMinutes((now.getUTCMinutes())+30);
+    
+     if(!booked && (slot.start > now)){ %>
      <p class="actionmessage mt-6">Proceed to book this slot...</p>
+     <% } else {%>
+     <p class="actionmessage mt-6">Slot Details</p>
+     <% } %>
     <div class="container text-center d-flex justify-content-center mt-5">
-       
+       <div class="scrollingwindow">
         <div class="card showslotcard newcard">
             
             <div class="card-header">
@@ -16,7 +26,7 @@
                     </li>
                     
                     
-                        <% if(slot.start>new Date()){
+                        <% if(slot.start>now){
                         var slotbg="";
                         if(slot.vacancies && slot.vacancies>=6){
                             slotbg="slotgreen";
@@ -30,7 +40,7 @@
                         <li class="list-group-item">
                             <p>VACANCIES: <span class="<%=slotbg%>"><%=slot.vacancies%></span></p>
                         </li>
-                            <% } else if(slot.start < new Date() && slot.end> new Date()){ %>
+                            <% } else if(slot.start < now && slot.end> now){ %>
                         <li class="list-group-item">
                             <p class="slotalert">ONGOING!!</p>
                         </li>
@@ -42,7 +52,7 @@
                                 <li class="playerrow"><i class="fas fa-user usericon"></i>
                                 <a href="/profiles/other/<%= booking.userid %>" class="playername"><%=booking.firstname%></a>
                                     <form class="d-inline" method="POST" action="/slots/<%=slot._id%>/bookings/<%=booking._id%>?_method=DELETE">
-                                        <% if (booking.username==currentUser.username && (slot.end > new Date())){ %>
+                                        <% if (booking.username==currentUser.username && (slot.end > now)){ %>
                                         <button type="submit" class="trashbooking"><i class="far fa-trash-alt"></i></button>
                                         <% } %>
                                     </form>
@@ -55,7 +65,7 @@
                                 <li class="playerrow"><i class="fas fa-users usericon"></i>
                                    <a href="/profiles/other/<%= booking.userid %>" class="playername"><%=booking.firstname%> + <%=booking.companions%></a>
                                     <form class="d-inline" method="POST" action="/slots/<%=slot._id%>/bookings/<%=booking._id%>?_method=DELETE">
-                                        <% if(booking.username==currentUser.username && (slot.end > new Date())){ %>
+                                        <% if(booking.username==currentUser.username && (slot.end > now)){ %>
                                         <button type="submit" class="trashbooking"><i class="far fa-trash-alt"></i></button>
                                         <% } %>
                                     </form>
@@ -64,7 +74,7 @@
                             <%
                             }
                         });%>
-                <% if(!booked && (slot.start > new Date())){ %>
+                <% if(!booked && (slot.start > now)){ %>
                 <div class="actionbutton">
                     <form action="/slots/<%=slot._id%>/bookings/new">
                         <button type="submit">Book Slot</button>
@@ -80,7 +90,7 @@
                 <% } %>
             </div>
         </div>
-        
+        </div>
     </div>
     
     <% include ../partials/footer.ejs %>

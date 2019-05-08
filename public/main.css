@@ -303,6 +303,8 @@
     }
     
     
+    
+    
     /*SLOTWINDOW RULES*/
     .slotwindow{
         overflow-x:auto;
@@ -720,11 +722,36 @@
         padding:5px;
         margin-top: 10px;
         width: 80vw;
-        height: 70vh;
+        height: 30vh;
+        max-height:100%;
+        margin-bottom: 5px;
+        box-sizing: border-box;
     }
     .convocontainer{
         height:100%;
+        color:#FF947F;
+        margin-top: 30px;
+        display: inline-block;
     }
+    
+    .profilecard{
+        background: #565F75;
+        padding:10px;
+        border-radius:15px;
+        -moz-box-shadow: 0 0px 5px #2D3444;
+        -webkit-box-shadow: 0 0px 5px #2D3444;
+        box-shadow: 0 0px 5px #2D3444;
+        margin:30px;
+    }
+    
+    .profilecard h6{
+        margin:10px 0;
+    }
+    
+    .profilecard span{
+        color: #FFC494;
+    }
+    
 }
 
 
@@ -858,21 +885,21 @@
         color: #97A1B7;
         min-height: 324px;
         min-width:275px;
-        max-height:300px;
         display:inline-block;
         overflow-y: hidden;
         -moz-box-shadow: 0 0 30px #3B4256;
         -webkit-box-shadow: 0 0 30px #3B4256;
         box-shadow: 0 0 30px #3B4256;
     }
-    
     .card-body {
         background-color: #565F75;
-        position: relative;
-        height: 500px;
-        overflow-y: hidden;
+        position: absolute;
+        height: 100%;
+        width:100%;
         color: #D3DBED;
+        
     }
+    
     
     .card:hover{
         -moz-box-shadow: 0 0 10px #A7ACB7;
@@ -1707,10 +1734,11 @@
     
     .card-body {
         background-color: #565F75;
-        position: relative;
-        min-height: 100%;
-        overflow-y: hidden;
+        position: absolute;
+        height: 100%;
+        width:100%;
         color: #D3DBED;
+        
     }
     
     .card:hover{
@@ -2465,6 +2493,9 @@ a:hover {
     color:black;
 }
 
+.scrollingwindow{
+    overflow-y: scroll;
+}
     
 /*scrollbar styling for chrome*/
 

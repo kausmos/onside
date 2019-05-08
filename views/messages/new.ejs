@@ -1,19 +1,23 @@
 <% include ../partials/header.ejs %>
-
-<div class="convocontainer d-inline-block">
+<% 
+    var now = new Date();
+    now.setHours((now.getUTCHours())+5);
+    now.setMinutes((now.getUTCMinutes())+30);
+%>
+<div class="convocontainer d-inline-block text-center w-100">
     
-    
-    <h5 class="mt-4 text-center">Start a conversation</h5>
-    <div class="detailsform text-center">
-        <form action="/messages/<%= user._id + suffix %>" method="POST" class="loginform mx-auto">
-            <input type ="text" placeholder="message for <%=user.firstname%>" required name="content">
-            <div class="actionbutton mt-6">
-                <button type="submit">Send</button>    
-            </div>
-            
-        </form>
-    </div>
-    
+    <div class="convocontainer">
+        <h5 class="mt-4 text-center">Start a conversation</h5>
+        <div class="detailsform text-center">
+            <form action="/messages/<%= user._id + suffix %>" method="POST" class="loginform mx-auto">
+                <input type ="text" placeholder="message for <%=user.firstname%>" required name="content">
+                <div class="actionbutton mt-6">
+                    <button type="submit">Send</button>    
+                </div>
+                
+            </form>
+        </div>
+    </div>    
 </div>
 
 
