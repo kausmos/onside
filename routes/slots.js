@@ -61,13 +61,18 @@ router.get("/slots",middlewareObj.isLoggedIn,function(req,res){
 router.post("/slots",middlewareObj.isLoggedIn, function(req,res){
     //create new date objexts to store slot timings
     var day=req.query.day;
+    
+    var now=new Date();
+    now.setHours((now.getUTCHours())+5);
+    now.setMinutes((now.getUTCMinutes())+30);
+    
     var slotstart=new Date();
     slotstart.setHours((slotstart.getUTCHours())+5);
     slotstart.setMinutes((slotstart.getUTCMinutes())+30);
     
     var slotend=new Date();
-    slotend.setHours((slotstart.getUTCHours())+5);
-    slotend.setMinutes((slotstart.getUTCMinutes())+30);
+    slotend.setHours((slotend.getUTCHours())+5);
+    slotend.setMinutes((slotend.getUTCMinutes())+30);
     
     slotstart.setHours(req.body.starttime.slice(0,2));
     slotstart.setMinutes(req.body.starttime.slice(3));
@@ -78,20 +83,30 @@ router.post("/slots",middlewareObj.isLoggedIn, function(req,res){
 
     //check if duration valid between 60-90 mintues
     //this also checks that endtime later than starttime
-    var duration=(slotend-slotstart)/60000;
+    console.log("slotend"+slotend);
+    console.log("slotstart"+slotstart);
+    var duration=(slotend.getTime()-slotstart.getTime())/60000;
+    console.log("Duration:"+duration);
     if(duration>=60 && duration <=90){
         
          //change the day of the slot start and end accordingto day of booking
         if(day=="Tomorrow"){
             slotstart.setDate(slotstart.getDate()+1);
             slotend.setDate(slotend.getDate()+1);
+            
         }
         else if(day!="Today"){
             slotstart.setDate(slotstart.getDate()+2);
             slotend.setDate(slotend.getDate()+2);
         }
         
-        // create the slot object for insertion into db 
+        if (slotstart< now){
+            req.flash("error","You are trying to book a slot in the past");
+            res.redirect("/slots/new")
+        
+        }
+        else{
+            // create the slot object for insertion into db 
         
         var slotObj={
             creator: res.locals.currentUser.username,
@@ -160,19 +175,24 @@ router.post("/slots",middlewareObj.isLoggedIn, function(req,res){
                 
             }
         });
+        }
+            
     }
+        
+        
+    
     
     else if(duration<0){
         //redirect with message : end time  should be after start time
         req.flash("error","End time  should be after Start time ");
-        res.redirect("/slots");
+        res.redirect("/slots/new");
         
     }
     
     else{
         //redirect with message : duration should be 60 - 90 minutes
         req.flash("error","Slot duraton should be between 60 and 90 minutes");
-        res.redirect("/slots");
+        res.redirect("/slots/new");
     }
 });
 
