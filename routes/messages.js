@@ -302,17 +302,32 @@ router.get("/messages/:streamid",middlewareObj.isLoggedIn,function(req,res){
                 if(!(stream.messageList.slice(-1)[0].sender.userid.equals(res.locals.currentUser._id))){
                     
                     console.log("non sender checks");
-                    if(user.messages){
-                    user.messages.unread = user.messages.unread - stream.unread;
-                    user.markModified("messages.unread");
-                    user.save(function(err,user){
-                        if(!err){
-                            res.locals.currentUser.messages.unread=user.messages.unread;
-                             stream.unread=0;
-                            stream.save();
-                            getOtherUser();
+                    console.log("user object messages"+user.messages);
+                    
+                    //check is required to handle previous accounts which did not have messages.unread in the user model
+                    if(user.messages.unread){
+                        console.log("user.messages exists");
+                        user.messages.unread = user.messages.unread - stream.unread;
+                        if (user.messages.unread<0){
+                            user.messages.unread=0;
                         }
-                    });    
+                        user.markModified("messages.unread");
+                        user.save(function(err,user){
+                            if(!err){
+                                res.locals.currentUser.messages.unread=user.messages.unread;
+                                stream.unread=0;
+                                stream.save();
+                                getOtherUser();
+                            }
+                        });    
+                    }
+                    else{
+                        user.messages={unread:0};
+                        res.locals.currentUser.messages.unread=user.messages.unread
+                        user.save();
+                        stream.unread=0;
+                        stream.save();
+                        getOtherUser();
                     }
                    
                 }
