@@ -8,7 +8,7 @@
 @media(max-width:450px){
     body{
     
-    background: #474F66;
+    background: #472720;
     font-family: 'Varela Round', sans-serif;
     height:100%;
     width:100vw;
@@ -28,7 +28,6 @@
     li{
         list-style: none;
     }
-    
     
     .successflash, .errorflash{
       background:white;
@@ -164,8 +163,8 @@
     
     input{
     background: none;
-    border: 2px solid #D0B6D8;
-    color:#D0B6D8;
+    border: 2px solid #873246;
+    color:#873246;
     }
     
     input:focus{
@@ -185,10 +184,10 @@
     margin: 0 auto;
     border-radius: 10px;
     color: #D3DBED;
-    background-color: #565F75;
-    -moz-box-shadow: 0 0 20px #3B4256;
-    -webkit-box-shadow: 0 0 20px #3B4256;
-    box-shadow: 0 0 20px #3B4256;
+    background-color: #606280;
+    -moz-box-shadow: 0 0 20px #594030;
+    -webkit-box-shadow: 0 0 20px #594030;
+    box-shadow: 0 0 20px #594030;
     }
     
     .loginform input[type='text']{
@@ -252,19 +251,19 @@
     .navbar{
         height:50px;
         background:#121E33;
-    -moz-box-shadow: 0 20px 10px #2D3444;
-    -webkit-box-shadow: 0 20px 10px #2D3444;
-    box-shadow: 0 20px 20px #2D3444;
+    -moz-box-shadow: 0 10px 10px #594030;
+    -webkit-box-shadow: 0 10px 10px #594030;
+    box-shadow: 0 10px 10px #594030;
     }
     
     .daynav a{
-    margin: 5px;
-    color: #FF947F;
+    margin: 4px;
+    color: #C95E55;
     font-size: 15px;
     }
 
     .daynav a:hover{
-        color: #FFC494;;
+        color: #702B25;;
         margin-top:5px;
         transition: color 0.2s ease-in;
     }
@@ -277,18 +276,24 @@
         background: none;
     }
     
+    .daynav .dayselect{
+        color: #702B25;
+        font-size:1.2rem;
+        transition: color 3s ease-in;
+    }
+    
     .detailscap{
     text-align: center;
     font-size:12px
     }
     
     .detailscap a{
-        color:#FF947F;
+        color:#B85442;
         ;
     }
     
     .detailscap a:hover{
-        color:#FFC494;
+        color:#9C4738;
     }
     
     
@@ -307,13 +312,13 @@
     
     /*SLOTWINDOW RULES*/
     .slotwindow{
-        overflow-x:auto;
+        overflow:auto;
         padding: 30px 20px;
-        min-height: 400px;
+        min-height: 350px;
         height:70vh;
-        -moz-box-shadow: inset 0 0 20px #3B4256;
-        -webkit-box-shadow: inset 0 0 -20px #3B4256;
-        box-shadow: inset 0 0 20px #3B4256;
+        -moz-box-shadow: inset 0 0 20px #594030;
+        -webkit-box-shadow: inset 0 0 20px #594030;
+        box-shadow: inset 0 0 20px #594030;
         border-radius:15px;
         padding-top: 20px;
         min-width: 300px;
@@ -323,7 +328,7 @@
     
     /*CARD STYLING FOR PHONE*/
     .card{
-        background-color: #565F75;;
+        background-color: #606280;;
         border: none;
         border-radius:20px;
         color: #97A1B7;
@@ -331,13 +336,13 @@
         width:250px;
         display:inline-block;
         overflow-y: hidden;
-        -moz-box-shadow: 0 0 30px #3B4256;
-        -webkit-box-shadow: 0 0 30px #3B4256;
-        box-shadow: 0 0 30px #3B4256;
+        -moz-box-shadow: 0 0 30px #594030;
+        -webkit-box-shadow: 0 0 30px #594030;
+        box-shadow: 0 0 30px #594030;
     }
     
     .card-body {
-        background-color: #565F75;
+        background-color: #606280;
         position: absolute;
         height: 100%;
         width:100%;
@@ -346,9 +351,9 @@
     }
     
     .card:hover{
-        -moz-box-shadow: 0 0 10px #A7ACB7;
-        -webkit-box-shadow: 0 0 10px #A7ACB7;
-        box-shadow: 0 0 10px #A7ACB7;
+        -moz-box-shadow: 0 0 10px #947D6F;
+        -webkit-box-shadow: 0 0 10px #947D6F;
+        box-shadow: 0 0 10px #947D6F;
         transition: box-shadow 0.4s ease-in;
     }
     
@@ -389,9 +394,9 @@
         width:250px;
         display:inline-block;
         overflow-y: hidden;
-        -moz-box-shadow: 0 0 30px #3B4256;
-        -webkit-box-shadow: 0 0 30px #3B4256;
-        box-shadow: 0 0 30px #3B4256;
+        -moz-box-shadow: 0 0 30px #594030;
+        -webkit-box-shadow: 0 0 30px #594030;
+        box-shadow: 0 0 30px #594030;
     }
     .list-group-item{
     background: none;
@@ -494,9 +499,9 @@
         display:block;
         font-size:16px;
         color: #D3DBED;
-        -moz-box-shadow: 0 0 20px #3B4256;
-        -webkit-box-shadow: 0 0 20px #3B4256;
-        box-shadow: 0 0 20px #3B4256;
+        -moz-box-shadow: 0 0 20px #594030;
+        -webkit-box-shadow: 0 0 20px #594030;
+        box-shadow: 0 0 20px #594030;
     
     }
     
@@ -551,7 +556,8 @@
     
     .message-right .speechbubble{
         
-        color:#FF947F;
+        color:#9C4738;
+        border-style: dashed;
     }
     
     .message-left .speechbubble::before{
@@ -563,7 +569,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-right: 15px solid #D0B6D8;
+        border-right: 15px solid #873246;
         border-bottom: 8px solid transparent;
         left: -15px;
         top: 10px;
@@ -578,7 +584,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-right: 15px solid #474F66;
+        border-right: 15px solid #F6E5BE;
         border-bottom: 8px solid transparent;
         left: -10px;
         top: 10px;
@@ -592,9 +598,9 @@
         width:0px;
         height: 0px;
         
-        border-top: 8px solid transparent;
-        border-left: 15px solid #D0B6D8;
-        border-bottom: 8px solid transparent;
+        border-top: 8px dashed transparent;
+        border-left: 15px dashed #873246;
+        border-bottom: 8px dashed transparent;
         right: -15px;
         top: 10px;
     }
@@ -608,7 +614,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-left: 15px solid #474F66;
+        border-left: 15px solid #F6E5BE;
         border-bottom: 8px solid transparent;
         right: -10px;
         top: 10px;
@@ -623,14 +629,14 @@
     .newmessageform{
         width: 100%;
         margin-top: auto;
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         padding: 5px 0px;
         text-align: right;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         position:sticky;
         bottom:10px;
-        background:black;
+        background:#BD979F;
         
     }
     
@@ -645,6 +651,7 @@
         border-bottom: 2px solid #FFC494;
         outline:none;
         transition: border-bottom 1s;
+        color:#873246;
     }
     
     .newmessageform input[type='text']:hover{
@@ -667,7 +674,7 @@
     .sendmessagebtn button{
         background: none;
         border:none;
-        border-left: 2px solid #D0B6D8;
+        border-left: 2px solid #873246;
         padding-left: 20px;
         padding-right: 20px;
         box-sizing:border-box;
@@ -680,14 +687,14 @@
     }
     
     .sendmessagebtn i{
-        color:#D0B6D8;
+        color:#873246;
     }
     .sendmessagebtn:hover i{
         color:#FFC494;
         transition: color 1s;
     }
     .chatstreambox{
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         border-radius: 10px;
         padding: 10px 15px;
         height: 100%;
@@ -706,7 +713,7 @@
     }
     
     .speechbubble{
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         padding: 10px;
         margin: 2px 10px;
         border-radius:5px;
@@ -716,6 +723,7 @@
         text-transform: none;
         max-width: 80%;
         word-wrap: break-word;
+        background-color: #F6E5BE;
     }
     .chatuser h6{
         font-size:12px;
@@ -724,25 +732,25 @@
         padding:5px;
         margin-top: 10px;
         width: 80vw;
-        height: 30vh;
-        max-height:100%;
+        height: 200px;
+        
         margin-bottom: 5px;
         box-sizing: border-box;
     }
     .convocontainer{
         height:100%;
-        color:#FF947F;
+        color:#9C4738;
         margin-top: 30px;
         display: inline-block;
     }
     
     .profilecard{
-        background: #565F75;
+        background: #606280;
         padding:10px;
         border-radius:15px;
-        -moz-box-shadow: 0 0px 5px #2D3444;
-        -webkit-box-shadow: 0 0px 5px #2D3444;
-        box-shadow: 0 0px 5px #2D3444;
+        -moz-box-shadow: 0 0px 5px #594030;
+        -webkit-box-shadow: 0 0px 5px #594030;
+        box-shadow: 0 0px 5px #594030;
         margin:30px;
     }
     
@@ -789,20 +797,20 @@
     
     
     .navbar-container, .main-container, .footer-container{
-        width:450px;
+        width:60%;
     }
     
     .main-container{
-        margin-top: 70px;
+        margin-top: 15vh;
         height:100%;
     }
     
     .navbar{
         
         background:#121E33;
-        -moz-box-shadow: 0 20px 10px #2D3444;
-        -webkit-box-shadow: 0 20px 10px #2D3444;
-        box-shadow: 0 20px 20px #2D3444;
+    -moz-box-shadow: 0 10px 10px #594030;
+    -webkit-box-shadow: 0 10px 10px #594030;
+    box-shadow: 0 10px 10px #594030;
         
     }
     
@@ -886,7 +894,7 @@
     }
     
     .card{
-        background-color: #565F75;;
+        background-color: #606280;;
         border: none;
         border-radius:20px;
         color: #97A1B7;
@@ -894,12 +902,12 @@
         min-width:275px;
         display:inline-block;
         overflow-y: hidden;
-        -moz-box-shadow: 0 0 30px #3B4256;
-        -webkit-box-shadow: 0 0 30px #3B4256;
-        box-shadow: 0 0 30px #3B4256;
+        -moz-box-shadow: 0 0 30px #594030;
+        -webkit-box-shadow: 0 0 30px #594030;
+        box-shadow: 0 0 30px #594030;
     }
     .card-body {
-        background-color: #565F75;
+        background-color: #606280;
         position: absolute;
         height: 100%;
         width:100%;
@@ -909,9 +917,9 @@
     
     
     .card:hover{
-        -moz-box-shadow: 0 0 10px #A7ACB7;
-        -webkit-box-shadow: 0 0 10px #A7ACB7;
-        box-shadow: 0 0 10px #A7ACB7;
+        -moz-box-shadow: 0 0 10px #947D6F;
+        -webkit-box-shadow: 0 0 10px #947D6F;
+        box-shadow: 0 0 10px #947D6F;
         transition: box-shadow 0.4s ease-in;
     }
     
@@ -1019,12 +1027,12 @@
     
     .daynav a{
         margin: 5px;
-        color: #FF947F;
+        color: #C95E55;
         font-size: 15px;
     }
     
     .daynav a:hover{
-        color: #FFC494;;
+        color: #702B25;;
         margin-top:5px;
         transition: color 0.2s ease-in;
     }
@@ -1035,6 +1043,12 @@
         top:60px;
         left:0;
         background: none;
+    }
+    
+    .daynav .dayselect{
+        color: #702B25;
+        font-size:1.3rem;
+        transition: color 3s ease-in;
     }
     
     .dropdown-menu{
@@ -1050,11 +1064,7 @@
         overflow: hidden;
         border-top: 1px solid #392338;
     }
-    .daynav .dayselect{
-        color: #FFC494;
-        font-size:1.3rem;
-        transition: color 3s ease-in;
-    }
+    
     
     .actionmessage{
         border-top: 2px solid #C1A1C9;
@@ -1143,7 +1153,7 @@
     }
         
     .newslotcard{
-        background: #565F75;
+        background: #606280;
         text-align: center;
         width: 253px;
         height: 302px;
@@ -1160,8 +1170,8 @@
     
     input{
         background: none;
-        border: 2px solid #D0B6D8;
-        color:#D0B6D8;
+        border: 2px solid #873246;
+        color:#873246;
     }
     input:focus{
         border: 2px solid #FFC494;
@@ -1187,11 +1197,11 @@
     }
     
     .detailscap a{
-        color:#FF947F;
+        color:#B85442;
     }
     
     .detailscap a:hover{
-        color:#FFC494;
+        color:#9C4738;
     }
     
     .detailsform{
@@ -1200,12 +1210,12 @@
     }
     
     .profilecard{
-        background: #565F75;
+        background: #606280;
         padding:10px;
         border-radius:15px;
-        -moz-box-shadow: 0 0px 5px #2D3444;
-        -webkit-box-shadow: 0 0px 5px #2D3444;
-        box-shadow: 0 0px 5px #2D3444;
+        -moz-box-shadow: 0 0px 5px #594030;
+        -webkit-box-shadow: 0 0px 5px #594030;
+        box-shadow: 0 0px 5px #594030;
         margin:30px;
     }
     
@@ -1218,7 +1228,7 @@
     }
     
     .chatstreambox{
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         border-radius: 10px;
         padding: 8px 15px;
         height: 80%;
@@ -1256,14 +1266,14 @@
     .newmessageform{
         width: 100%;
         margin-top: auto;
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         padding: 5px 0px;
         text-align: right;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         position:absolute;
         bottom:10px;
-        bakground:grey;
+        background:#BD979F;
         
     }
     
@@ -1278,6 +1288,7 @@
         border-bottom: 2px solid #FFC494;
         outline:none;
         transition: border-bottom 1s;
+        color:#873246;
     }
     
     .newmessageform input[type='text']:hover{
@@ -1300,7 +1311,7 @@
     .sendmessagebtn button{
         background: none;
         border:none;
-        border-left: 2px solid #D0B6D8;
+        border-left: 2px solid #873246;
         padding-left: 20px;
         padding-right: 20px;
         box-sizing:border-box;
@@ -1313,28 +1324,44 @@
     }
     
     .sendmessagebtn i{
-        color:#D0B6D8;
+        color:#873246;
     }
     .sendmessagebtn:hover i{
         color:#FFC494;
         transition: color 1s;
     }
     
-    .footer{
+     .footer{
         position:fixed;
         margin-top:auto;
         bottom:0px;
-        background:rgbargba(129,75,102,0.8);
+        background:rgba(129,75,102,0.8);
+        opacity:50%;
     }
-    
     .footer-container {
         position:relative;
-        background:rgba(0,0,0,0.5);
+        
     } 
     .footer-container p{
         color: #fff;
-        font-size: 16px;
+        font-size: 9px;
     }
+    
+    /*.footer{*/
+    /*    position:fixed;*/
+    /*    margin-top:auto;*/
+    /*    bottom:0px;*/
+    /*    background:rgbargba(129,75,102,0.8);*/
+    /*}*/
+    
+    /*.footer-container {*/
+    /*    position:relative;*/
+    /*    background:rgba(0,0,0,0.5);*/
+    /*} */
+    /*.footer-container p{*/
+    /*    color: #fff;*/
+    /*    font-size: 16px;*/
+    /*}*/
     
     .chatuser{
         color: #FFC494;
@@ -1346,7 +1373,7 @@
     }
     
     .speechbubble{
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         padding: 10px;
         margin: 2px 10px;
         border-radius:5px;
@@ -1354,16 +1381,17 @@
         display:inline-block;
         font-size:13px;
         text-transform: none;
+        background-color: #F6E5BE;
     }
     
     .slotwindow{
-        overflow-x:auto;
+        overflow:auto;
         padding: 30px 20px;
         text-align: left;
-        height: 450px;
-        -moz-box-shadow: inset 0 0 20px #3B4256;
-        -webkit-box-shadow: inset 0 0 -20px #3B4256;
-        box-shadow: inset 0 0 20px #3B4256;
+        height: 500px;
+        -moz-box-shadow: inset 0 0 20px #594030;
+        -webkit-box-shadow: inset 0 0 20px #594030;
+        box-shadow: inset 0 0 20px #594030;
         border-radius:10px;
         padding-top: 60px;
     }
@@ -1372,23 +1400,25 @@
     .convocontainer{
         margin-top: 30px;
         overflow: hidden;
-        width:60%;
+        width:60vw;
         margin-left: auto;
         margin-right: auto;
-        text-align: center
+        text-align: center;
+        height:90%;
     }
     
     .convocontainer .slotwindow{
-        height: 70vh;
-        width: 50vh;
+        width: 90%;
         margin-top: 10px;
         margin-left:auto;
         margin-right:auto;
     }
     .convocontainer h5{
-        color:#FF947F;
+        color:#B85442;
     }
-    
+    .detailsform{
+        max-height:60%;
+    }
     .indextab{
         top:0px;
         padding: 0px;
@@ -1400,9 +1430,9 @@
         display:block;
         font-size:16px;
         color: #D3DBED;
-        -moz-box-shadow: 0 0 20px #3B4256;
-        -webkit-box-shadow: 0 0 20px #3B4256;
-        box-shadow: 0 0 20px #3B4256;
+        -moz-box-shadow: 0 0 20px #594030;
+        -webkit-box-shadow: 0 0 20px #594030;
+        box-shadow: 0 0 20px #594030;
         
     }
     
@@ -1426,9 +1456,9 @@
     
     .indextab:hover{
         
-        -moz-box-shadow: 0 0 10px #A7ACB7;
-        -webkit-box-shadow: 0 0 10px #A7ACB7;
-        box-shadow: 0 0 10px #A7ACB7;
+        -moz-box-shadow: 0 0 10px #947D6F;
+        -webkit-box-shadow: 0 0 10px #947D6F;
+        box-shadow: 0 0 10px #947D6F;
         transition: box-shadow 0.4s ease-in;
         
     }
@@ -1453,7 +1483,8 @@
     
     .message-right .speechbubble{
         
-        color:#FF947F;
+        color:#B85442;
+        border-style: dashed;
     }
     
     .message-left .speechbubble::before{
@@ -1465,7 +1496,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-right: 15px solid #D0B6D8;
+        border-right: 15px solid #873246;
         border-bottom: 8px solid transparent;
         left: -15px;
         top: 10px;
@@ -1480,7 +1511,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-right: 15px solid #474F66;
+        border-right: 15px solid #F6E5BE;
         border-bottom: 8px solid transparent;
         left: -10px;
         top: 10px;
@@ -1494,9 +1525,9 @@
         width:0px;
         height: 0px;
         
-        border-top: 8px solid transparent;
-        border-left: 15px solid #D0B6D8;
-        border-bottom: 8px solid transparent;
+        border-top: 8px dashed transparent;
+        border-left: 15px dashed #873246;
+        border-bottom: 8px dashed transparent;
         right: -15px;
         top: 10px;
     }
@@ -1510,7 +1541,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-left: 15px solid #474F66;
+        border-left: 15px solid #F6E5BE;
         border-bottom: 8px solid transparent;
         right: -10px;
         top: 10px;
@@ -1528,10 +1559,10 @@
         margin: 0 auto;
         border-radius: 10px;
         color: #D3DBED;
-        background-color: #565F75;
-        -moz-box-shadow: 0 0 20px #3B4256;
-        -webkit-box-shadow: 0 0 20px #3B4256;
-        box-shadow: 0 0 20px #3B4256;
+        background-color: #606280;
+        -moz-box-shadow: 0 0 20px #594030;
+        -webkit-box-shadow: 0 0 20px #594030;
+        box-shadow: 0 0 20px #594030;
     }
     
     .loginform input[type='text']{
@@ -1647,9 +1678,9 @@
     .navbar{
         
         background:#121E33;
-        -moz-box-shadow: 0 20px 10px #2D3444;
-        -webkit-box-shadow: 0 20px 10px #2D3444;
-        box-shadow: 0 20px 20px #2D3444;
+    -moz-box-shadow: 0 10px 10px #594030;
+    -webkit-box-shadow: 0 10px 10px #594030;
+    box-shadow: 0 10px 10px #594030;
         
     }
     
@@ -1733,7 +1764,7 @@
     }
     
     .card{
-        background-color: #565F75;;
+        background-color: #606280;;
         border: none;
         border-radius:20px;
         color: #97A1B7;
@@ -1742,13 +1773,13 @@
         
         display:inline-block;
         overflow-y: hidden;
-        -moz-box-shadow: 0 0 30px #3B4256;
-        -webkit-box-shadow: 0 0 30px #3B4256;
-        box-shadow: 0 0 30px #3B4256;
+        -moz-box-shadow: 0 0 30px #594030;
+        -webkit-box-shadow: 0 0 30px #594030;
+        box-shadow: 0 0 30px #594030;
     }
     
     .card-body {
-        background-color: #565F75;
+        background-color: #606280;
         position: absolute;
         height: 100%;
         width:100%;
@@ -1757,9 +1788,9 @@
     }
     
     .card:hover{
-        -moz-box-shadow: 0 0 10px #A7ACB7;
-        -webkit-box-shadow: 0 0 10px #A7ACB7;
-        box-shadow: 0 0 10px #A7ACB7;
+        -moz-box-shadow: 0 0 10px #947D6F;
+        -webkit-box-shadow: 0 0 10px #947D6F;
+        box-shadow: 0 0 10px #947D6F;
         transition: box-shadow 0.4s ease-in;
     }
     
@@ -1869,12 +1900,12 @@
     
     .daynav a{
         margin: 5px;
-        color: #FF947F;
+        color: #C95E55;
         font-size: 15px;
     }
     
     .daynav a:hover{
-        color: #FFC494;;
+        color: #702B25;;
         margin-top:5px;
         transition: color 0.2s ease-in;
     }
@@ -1887,6 +1918,35 @@
         background: none;
     }
     
+    .daynav .dayselect{
+        color: #702B25;
+        font-size:1.3rem;
+        transition: color 3s ease-in;
+    }
+    /*.daynav a{*/
+    /*    margin: 5px;*/
+    /*    color: #FF947F;*/
+    /*    font-size: 15px;*/
+    /*}*/
+    
+    /*.daynav a:hover{*/
+    /*    color: #FFC494;;*/
+    /*    margin-top:5px;*/
+    /*    transition: color 0.2s ease-in;*/
+    /*}*/
+    
+    /*.daynav{*/
+    /*    text-align: left;*/
+    /*    margin: 60px 0px 60px 0px;*/
+    /*    top:60px;*/
+    /*    left:0;*/
+    /*    background: none;*/
+    /*}*/
+    /*.daynav .dayselect{*/
+    /*    color: #FFC494;*/
+    /*    font-size:1.3rem;*/
+    /*    transition: color 3s ease-in;*/
+    /*}*/
     .dropdown-menu{
         background: #1D2E47;
     }
@@ -1900,11 +1960,7 @@
         overflow: hidden;
         border-top: 1px solid #392338;
     }
-    .daynav .dayselect{
-        color: #FFC494;
-        font-size:1.3rem;
-        transition: color 3s ease-in;
-    }
+    
     
     .actionmessage{
         border-top: 2px solid #C1A1C9;
@@ -1997,7 +2053,7 @@
     }
         
     .newslotcard{
-        background: #565F75;
+        background: #606280;
         text-align: center;
         width: 253px;
         height: 302px;
@@ -2020,8 +2076,8 @@
     
     input{
         background: none;
-        border: 2px solid #D0B6D8;
-        color:#D0B6D8;
+        border: 2px solid #873246;
+        color:#873246;
     }
     input:focus{
         border: 2px solid #FFC494;
@@ -2035,11 +2091,11 @@
     }
     
     .detailscap a{
-        color:#FF947F;
+        color:#B85442;
     }
     
     .detailscap a:hover{
-        color:#FFC494;
+        color:#9C4738;
     }
     
     .detailsform{
@@ -2048,12 +2104,12 @@
     }
     
     .profilecard{
-        background: #565F75;
+        background: #606280;
         padding:10px;
         border-radius:15px;
-        -moz-box-shadow: 0 0px 5px #2D3444;
-        -webkit-box-shadow: 0 0px 5px #2D3444;
-        box-shadow: 0 0px 5px #2D3444;
+        -moz-box-shadow: 0 0px 5px #594030;
+        -webkit-box-shadow: 0 0px 5px #594030;
+        box-shadow: 0 0px 5px #594030;
         margin:30px;
     }
     
@@ -2066,7 +2122,7 @@
     }
     
     .chatstreambox{
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         border-radius: 10px;
         padding: 8px 15px;
         height: 80%;
@@ -2098,13 +2154,14 @@
     .newmessageform{
         width: 100%;
         margin-top: auto;
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         padding: 5px 0px;
         text-align: right;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         position:sticky;
         bottom:0;
+        background: #BD979F;
         
     }
     
@@ -2119,6 +2176,7 @@
         border-bottom: 2px solid #FFC494;
         outline:none;
         transition: border-bottom 1s;
+        color:#873246;
     }
     
     .newmessageform input[type='text']:hover{
@@ -2141,7 +2199,7 @@
     .sendmessagebtn button{
         background: none;
         border:none;
-        border-left: 2px solid #D0B6D8;
+        border-left: 2px solid #873246;
         padding-left: 20px;
         padding-right: 20px;
         box-sizing:border-box;
@@ -2154,24 +2212,40 @@
     }
     
     .sendmessagebtn i{
-        color:#D0B6D8;
+        color:#873246;
     }
     .sendmessagebtn:hover i{
         color:#FFC494;
         transition: color 1s;
     }
     
-    .footer{
+     .footer{
         position:fixed;
         margin-top:auto;
         bottom:0px;
         background:rgba(129,75,102,0.8);
+        opacity:50%;
+    }
+    .footer-container {
+        position:relative;
+        
+    } 
+    .footer-container p{
+        color: #fff;
+        font-size: 9px;
     }
     
-    .footer-container {
-        position:absolute;
-        bottom:0px;
-    }
+    /*.footer{*/
+    /*    position:fixed;*/
+    /*    margin-top:auto;*/
+    /*    bottom:0px;*/
+    /*    background:rgba(129,75,102,0.8);*/
+    /*}*/
+    
+    /*.footer-container {*/
+    /*    position:absolute;*/
+    /*    bottom:0px;*/
+    /*}*/
     
     .chatuser{
         color: #FFC494;
@@ -2183,7 +2257,7 @@
     }
     
     .speechbubble{
-        border: 2px solid #D0B6D8;
+        border: 2px solid #873246;
         padding: 10px;
         margin: 2px 10px;
         border-radius:5px;
@@ -2191,16 +2265,17 @@
         display:inline-block;
         font-size:13px;
         text-transform: none;
+        background-color: #F6E5BE;
     }
     
     .slotwindow{
-        overflow-x:auto;
+        overflow:auto;
         padding: 30px 20px;
         text-align: left;
         min-height: 450px;
-        -moz-box-shadow: inset 0 0 20px #3B4256;
-        -webkit-box-shadow: inset 0 0 -20px #3B4256;
-        box-shadow: inset 0 0 20px #3B4256;
+        -moz-box-shadow: inset 0 0 20px #594030;
+        -webkit-box-shadow: inset 0 0 20px #594030;
+        box-shadow: inset 0 0 20px #594030;
         border-radius:10px;
         padding-top: 60px;
     }
@@ -2223,7 +2298,7 @@
         margin-right:auto;
     }
     .convocontainer h5{
-        color:#FF947F;
+        color:#B85442;
     }
     
     .indextab{
@@ -2237,9 +2312,9 @@
         display:block;
         font-size:16px;
         color: #D3DBED;
-        -moz-box-shadow: 0 0 20px #3B4256;
-        -webkit-box-shadow: 0 0 20px #3B4256;
-        box-shadow: 0 0 20px #3B4256;
+        -moz-box-shadow: 0 0 20px #594030;
+        -webkit-box-shadow: 0 0 20px #594030;
+        box-shadow: 0 0 20px #594030;
         
     }
     
@@ -2263,9 +2338,9 @@
     
     .indextab:hover{
         
-        -moz-box-shadow: 0 0 10px #A7ACB7;
-        -webkit-box-shadow: 0 0 10px #A7ACB7;
-        box-shadow: 0 0 10px #A7ACB7;
+        -moz-box-shadow: 0 0 10px #947D6F;
+        -webkit-box-shadow: 0 0 10px #947D6F;
+        box-shadow: 0 0 10px #947D6F;
         transition: box-shadow 0.4s ease-in;
         
     }
@@ -2290,7 +2365,8 @@
     
     .message-right .speechbubble{
         
-        color:#FF947F;
+        color:#B85442;
+        border-style: dashed;
     }
     
     .message-left .speechbubble::before{
@@ -2302,7 +2378,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-right: 15px solid #D0B6D8;
+        border-right: 15px solid #873246;
         border-bottom: 8px solid transparent;
         left: -15px;
         top: 10px;
@@ -2317,7 +2393,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-right: 15px solid #474F66;
+        border-right: 15px solid #F6E5BE;
         border-bottom: 8px solid transparent;
         left: -10px;
         top: 10px;
@@ -2331,9 +2407,9 @@
         width:0px;
         height: 0px;
         
-        border-top: 8px solid transparent;
-        border-left: 15px solid #D0B6D8;
-        border-bottom: 8px solid transparent;
+        border-top: 8px dashed transparent;
+        border-left: 15px dashed #873246;
+        border-bottom: 8px dashed transparent;
         right: -15px;
         top: 10px;
     }
@@ -2347,7 +2423,7 @@
         height: 0px;
         
         border-top: 8px solid transparent;
-        border-left: 15px solid #474F66;
+        border-left: 15px solid #F6E5BE;
         border-bottom: 8px solid transparent;
         right: -10px;
         top: 10px;
@@ -2365,10 +2441,10 @@
         margin: 0 auto;
         border-radius: 10px;
         color: #D3DBED;
-        background-color: #565F75;
-        -moz-box-shadow: 0 0 20px #3B4256;
-        -webkit-box-shadow: 0 0 20px #3B4256;
-        box-shadow: 0 0 20px #3B4256;
+        background-color: #606280;
+        -moz-box-shadow: 0 0 20px #594030;
+        -webkit-box-shadow: 0 0 20px #594030;
+        box-shadow: 0 0 20px #594030;
     }
     
     .loginform input[type='text']{
@@ -2418,7 +2494,7 @@
    
     body{
     
-    background: #524F59;
+    background: linear-gradient(to bottom right,#EDF2D4,#FFD7A7);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -2427,7 +2503,7 @@
     width:100vw;
     padding: 0px;
     margin:0px;
-    color:#D3DBED;
+    color:#472720;
     text-transform: uppercase;
     min-height:100%;
     overflow-y: hidden;
@@ -2517,6 +2593,18 @@ a:hover {
     padding:10px;
     
 }
+
+.navbar-toggler-icon i{
+	margin-top: 5px;
+	color:#d3dbed;
+     }
+     
+#navbarSupportedContent{
+     width:100vw;
+     background: #121E33;
+     padding-left:10px;
+     
+    }
     
 /*scrollbar styling for chrome*/
 

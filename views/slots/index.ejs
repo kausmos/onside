@@ -14,7 +14,7 @@
 <div class="daynav"><a href="#" class="dayselect">Today</a><a href="#">Tomorrow</a><a href="#"><%= dayaftertomorrow%></a><a href="#">All Slots</a></div>
 <div class="slotwindow">
 <!-----------slots today -->
-<div class="d-flex slotsection flex-column flex-md-row align-items-center" id="slotstoday">
+<div class="d-flex slotsection flex-column flex-lg-row align-items-center" id="slotstoday">
     
     <div class="card newslotcard">
         <a href="/slots/new?day=today" class="h-100 p-3">
@@ -80,7 +80,7 @@
 
 <!-----------slots tomorrow -->
 
-<div class="d-none slotsection flex-column flex-md-row align-items-center" id="slotstomorrow">
+<div class="d-none slotsection flex-column flex-lg-row align-items-center" id="slotstomorrow">
     
     <div class="card newslotcard">
         <a href="/slots/new?day=tomorrow" class="h-100">
@@ -142,7 +142,7 @@
 
 <!----slots day after -->
 
-<div class="d-none slotsection flex-column flex-md-row align-items-center" id="slotsdayafter">
+<div class="d-none slotsection flex-column flex-lg-row align-items-center" id="slotsdayafter">
     
     <div class="card newslotcard">
         <a href="/slots/new?day=dayafter" class="h-100">
@@ -207,7 +207,7 @@
 
 <!--- All slots this year -->
 
-<div class="d-none slotsection flex-column flex-md-row align-items-center" id="slotscurrentyear">
+<div class="d-none slotsection flex-column flex-lg-row align-items-center" id="slotscurrentyear">
     
     
     <% if(slotscurrentyear.length>0){
