@@ -163,8 +163,8 @@
     
     input{
     background: none;
-    border: 2px solid #873246;
-    color:#873246;
+    border: 2px solid #D3DBED;
+    color:#D3DBED;
     }
     
     input:focus{
@@ -1170,8 +1170,8 @@
     
     input{
         background: none;
-        border: 2px solid #873246;
-        color:#873246;
+        border: 2px solid #D3DBED;
+        color:#D3DBED;
     }
     input:focus{
         border: 2px solid #FFC494;
@@ -2076,8 +2076,8 @@
     
     input{
         background: none;
-        border: 2px solid #873246;
-        color:#873246;
+        border: 2px solid #D3DBED;
+        color:#D3DBED;
     }
     input:focus{
         border: 2px solid #FFC494;
