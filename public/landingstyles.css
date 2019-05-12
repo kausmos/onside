@@ -90,4 +90,181 @@
     
 }
 
-@media(max-width:450px){
+@media (min-width:451px) and (max-width:1200px){
+    body{
+    
+    background: linear-gradient(to bottom right,#EDF2D4,#FFD7A7);
+    font-family: 'Varela Round', sans-serif;
+    height:100%;
+    width:100vw;
+    padding: 0px;
+    margin:0px;
+    color: #D3DBED;
+    text-transform: uppercase;
+    overflow-y: hidden;
+    overscroll-behavior: auto;
+    }
+    
+    html{
+        height:100%;
+        overflow-y: hidden;
+    }
+    .image-container img{
+        height:auto;
+        max-width:60vw;
+        
+    }
+    
+    .caption-container{
+        height:80px;
+        overflow-y:hidden;
+        border:none;
+        box-sizing:border-box;
+        border-radius:5px;
+        background-color:#09051e;
+        width:30%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    
+    .caption-area{
+     display:inline-block;
+     height:100%;
+     min-height: 90px;
+     
+     max-width:45vw;
+     vertical-align: bottom;
+     
+     font-family: 'Press Start 2P', cursive;
+     top: -65px;
+    }
+    
+    
+    .caption-area h1{
+        vertical-align:bottom;
+        margin-top:20%;
+        font-size:20px;
+        
+    }
+    
+    
+    .brand-container{
+        padding-top:25px;
+        padding-bottom:25px;
+        margin-bottom:5px;
+        width:60%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .brand-container img{
+        width:70%;
+        display:inline-block;
+        vertical-align:middle;
+        
+    }
+    .button-container button{
+        
+        background: #365684;
+        border: none;
+        color: #ffc494;
+        border-radius: 3px;
+        width:25%;
+        font-family: 'Righteous', sans-serif;
+        padding:5px;
+        font-size:18px;
+    }
+    .main-container{
+        margin-top:30vh;
+        margin-bottom:auto;
+    }
+}
+    
+@media(min-width:1201px){
+    
+    body{
+    
+    background: linear-gradient(to bottom right,#EDF2D4,#FFD7A7);
+    font-family: 'Varela Round', sans-serif;
+    height:100%;
+    width:100vw;
+    padding: 0px;
+    margin:0px;
+    color: #D3DBED;
+    text-transform: uppercase;
+    overflow-y: hidden;
+    overscroll-behavior: auto;
+    }
+    
+    html{
+        height:100%;
+        overflow-y: hidden;
+    }
+    .image-container img{
+        height:auto;
+        max-width:40vw;
+        
+    }
+    
+    .caption-container{
+        height:80px;
+        overflow-y:hidden;
+        border:none;
+        box-sizing:border-box;
+        border-radius:5px;
+        background-color:#09051e;
+        width:30%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    
+    .caption-area{
+     display:inline-block;
+     height:100%;
+     min-height: 90px;
+     
+     max-width:45vw;
+     vertical-align: bottom;
+     
+     font-family: 'Press Start 2P', cursive;
+     top: -65px;
+    }
+    
+    
+    .caption-area h1{
+        vertical-align:bottom;
+        margin-top:20%;
+        font-size:20px;
+        
+    }
+    
+    
+    .brand-container{
+        padding-top:25px;
+        padding-bottom:25px;
+        margin-bottom:5px;
+        width:40%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .brand-container img{
+        width:70%;
+        display:inline-block;
+        vertical-align:middle;
+        
+    }
+    .button-container button{
+        
+        background: #365684;
+        border: none;
+        color: #ffc494;
+        border-radius: 3px;
+        width:15%;
+        font-family: 'Righteous', sans-serif;
+        padding:5px;
+        font-size:17px;
+    }
+    .main-container{
+        margin-top:20vh;
+        margin-bottom:auto;
+    }
+}
