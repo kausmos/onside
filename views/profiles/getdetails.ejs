@@ -16,68 +16,68 @@
         <p>Positions:</p>
             <select name="positiona">
                 <option value="">-</option>
-                <option value="gk">GK</option>
-                <option value="cb">CB</option>
-                <option value="cm">CM</option>
-                <option value="cdm">CDM</option>
-                <option value="cam">CAM</option>
-                <option value="wb">WB</option>
-                <option value="wr">WR</option>
-                <option value="fw">FW</option>
-                <option value="st">ST</option>
+                <option <% if(currentUser.positions[0]=="gk"){ %> selected=<%="true" %> <% } %> value="gk">GK</option>
+                <option <% if(currentUser.positions[0]=="cb"){ %> selected=<%= "true" %> <% } %>value="cb">CB</option>
+                <option <% if(currentUser.positions[0]=="cm"){ %> selected=<%="true" %> <% } %>value="cm">CM</option>
+                <option <% if(currentUser.positions[0]=="cdm"){ %> selected=<%="true" %> <% } %>value="cdm">CDM</option>
+                <option <% if(currentUser.positions[0]=="cam"){ %> selected=<%="true" %> <% } %>value="cam">CAM</option>
+                <option <% if(currentUser.positions[0]=="wb"){ %> selected=<%="true" %> <% } %>value="wb">WB</option>
+                <option <% if(currentUser.positions[0]=="wr"){ %> selected=<%="true" %> <% } %>value="wr">WR</option>
+                <option <% if(currentUser.positions[0]=="fw"){ %> selected=<%="true" %> <% } %>value="fw">FW</option>
+                <option <% if(currentUser.positions[0]=="st"){ %> selected=<%="true" %> <% } %>value="st">ST</option>
             </select>
-            <select name="positionb" hidden="true">
+            <select name="positionb">
                 <option value="">-</option>
-                <option value="gk">GK</option>
-                <option value="cb">CB</option>
-                <option value="cm">CM</option>
-                <option value="cdm">CDM</option>
-                <option value="cam">CAM</option>
-                <option value="wb">WB</option>
-                <option value="wr">WR</option>
-                <option value="fw">FW</option>
-                <option value="st">ST</option>
+                <option <% if(currentUser.positions[1]=="gk"){ %> selected=<%"true" %> <% } %> value="gk">GK</option>
+                <option <% if(currentUser.positions[1]=="cb"){ %> selected=<%"true" %> <% } %> value="cb">CB</option>
+                <option <% if(currentUser.positions[1]=="cm"){ %> selected=<%"true" %> <% } %>value="cm">CM</option>
+                <option <% if(currentUser.positions[1]=="cdm"){ %> selected=<%= "true" %> <% } %>value="cdm">CDM</option>
+                <option <% if(currentUser.positions[1]=="cam"){ %> selected= <%="true" %> <% } %>value="cam">CAM</option>
+                <option <% if(currentUser.positions[1]=="wb"){ %> selected=<%="true" %> <% } %>value="wb">WB</option>
+                <option <% if(currentUser.positions[1]=="wr"){ %> selected=<%="true" %> <% } %>value="wr">WR</option>
+                <option <% if(currentUser.positions[1]=="fw"){ %> selected=<%="true" %> <% } %>value="fw">FW</option>
+                <option <% if(currentUser.positions[1]=="st"){ %> selected=<%="true" %> <% } %>value="st">ST</option>
             </select>
-            <select name="positionc" hidden="true">
+            <select name="positionc">    
                 <option value="">-</option>
-                <option value="gk">GK</option>
-                <option value="cb">CB</option>
-                <option value="cm">CM</option>
-                <option value="cdm">CDM</option>
-                <option value="cam">CAM</option>
-                <option value="wb">WB</option>
-                <option value="wr">WR</option>
-                <option value="fw">FW</option>
-                <option value="st">ST</option>
+                <option <% if(currentUser.positions[2]=="gk"){ %> selected=<%="true" %> <% } %> value="gk">GK</option>
+                <option <% if(currentUser.positions[2]=="cb"){ %> selected=<%="true" %> <% } %> value="cb">CB</option>
+                <option <% if(currentUser.positions[2]=="cm"){ %> selected=<%="true" %> <% } %> value="cm">CM</option>
+                <option <% if(currentUser.positions[2]=="cdm"){ %> selected=<%="true" %> <% } %> value="cdm">CDM</option> 
+                <option <% if(currentUser.positions[2]=="cam"){ %> selected=<%="true" %> <% } %> value="cam">CAM</option>
+                <option <% if(currentUser.positions[2]=="wb"){ %> selected=<%="true" %> <% } %> value="wb">WB</option>
+                <option <% if(currentUser.positions[2]=="wr"){ %> selected=<%="true" %> <% } %> value="wr">WR</option>
+                <option <% if(currentUser.positions[2]=="fw"){ %> selected=<%="true" %> <% } %> value="fw">FW</option>
+                <option <% if(currentUser.positions[2]=="st"){ %> selected=<%="true" %> <% } %> value="st">ST</option>
             </select>
         </div>
         
         <div class="form-group teamplayed">
             <p>Associations(Teams part of):</p>
-            <input type="text" name="associationa" value="">
-            <input type="text" name="associationb" value="" >
-            <input type="text" name="associationc" value="" >
-            <p id="addplayed">+</p>
+            <input type="text" name="associationa" value="<%=currentUser.associations[0]%>">
+            <input type="text" name="associationb" value="<%=currentUser.associations[1]%>" >
+            <input type="text" name="associationc" value="<%=currentUser.associations[2]%>" >
+            <!--<p id="addplayed">+</p>-->
         </div>
         
         <div class="form-group teamsupport">
             <p>Teams you support </p>
-            <input type="text" name="favteama" value="">
-            <input type="text" name="favteamb" value="" >
-            <input type="text" name="favteamc" value="" >
-            <p id="addsupport">+</p>
+            <input type="text" name="favteama" value="<%=currentUser.favteams[0]%>">
+            <input type="text" name="favteamb" value="<%=currentUser.favteams[1]%>" >
+            <input type="text" name="favteamc" value="<%=currentUser.favteams[2]%>" >
+            <!--<p id="addsupport">+</p>-->
         </div>
         <div class="form-group">
             <p>Stronger Foot</p>
             <select name = "strongfoot">
-                <option value="r">Right</option>
-                <option value="l">Left</option>
-                <option value="b">Both</option>
+                <option value="r" <% if(currentUser.strongfoot=="r"){ %> selected=<%="true" %> <% } %>>Right</option>
+                <option value="l" <% if(currentUser.strongfoot=="l"){ %> selected=<%="true" %> <% } %>>Left</option>
+                <option value="b" <% if(currentUser.strongfoot=="b"){ %> selected=<%="true" %> <% } %>>Both</option>
             </select>
         </div>
         <div class="form-group hometown">
             <p>Hometown</p>
-            <input type="text" name="hometown">
+            <input type="text" name="hometown" value="<%=currentUser.hometown%>">
         </div>
         <div class="form-group actionbutton">
             <button type="submit">Update</input>
